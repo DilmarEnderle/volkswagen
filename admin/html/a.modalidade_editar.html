@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.modalidade_editar.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.modalidade_editar.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+</head>
+<body>
+<div class="site-wrap">
+	{{SEC_TOP}}
+	<div class="content" style="padding: 14px 20px 2px 20px;">
+		<span class="t18 bold lh-30 fl">{{TITLE}}</span>
+	</div>
+
+	<div class="content" style="padding: 8px 20px 0 20px;">
+		<a class="bt-cancelar fr mt-12" href="a.modalidade.php" title="Cancelar">X</a>
+		<div style="position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background-color: #999999;"><!-- --></div>
+		<a class="aba1 tb" href="javascript:void(0);">Modalidade</a>
+	</div>
+
+	<div class="content" style="padding: 20px 0 60px 0;">
+		<div class="content-inside" style="border: 1px solid #666666; padding: 20px 0;">
+			<form id="modalidade-form">
+				<input type="hidden" id="i-id" name="f-id" value="{{ID}}">
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Nome<a class="t10 bold red">*</a></span>
+					<input id="i-nome" class="iText" type="text" placeholder="- nome da modalidade -" name="f-nome" maxlength="50" value="{{NOME}}" style="position: absolute; left: 300px; top: 0; width: 500px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Abreviação<a class="t10 bold red">*</a></span>
+					<input id="i-abv" class="iText" type="text" placeholder="- abv -" name="f-abv" maxlength="6" value="{{ABV}}" style="position: absolute; left: 300px; top: 0; width: 200px;">
+				</div>
+			</form>
+			<div id="i-salvar-box" style="position: relative; height: 28px; margin-top: 20px;">
+				<a class="bt-style-1" href="javascript:void(0);" onclick="salvarModalidade();" style="display: inline-block; position: absolute; left: 300px; top: 0;">{{BT_TEXTO}}</a>
+			</div>
+			<div id="i-processando-box" style="display: none; position: relative; height: 28px; margin-top: 20px;">
+				<div class="processando">Salvando...</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

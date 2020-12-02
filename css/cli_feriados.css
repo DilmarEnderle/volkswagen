@@ -1,0 +1,36 @@
+/***  CLASSES  ***/
+.fer_nome {
+	height: 40px;
+	line-height: normal;
+	text-align: left;
+	padding: 0 10px;
+	border: 1px solid #bebebe;
+	border-top: none;
+	}
+
+.fer_dia {
+	line-height: normal;
+	text-align: left;
+	padding: 6px 10px;
+	border: 1px solid #bebebe;
+	border-left: none;
+	border-top: none;
+	color: #999999;
+	}
+
+.fer_fixo {
+	line-height: normal;
+	text-align: left;
+	padding: 6px 10px;
+	border: 1px solid #bebebe;
+	border-left: none;
+	border-top: none;
+	color: #999999;
+	}
+
+.lic_list th {
+	line-height: 36px;
+	padding: 0 10px;
+	white-space: nowrap;
+	}
+

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.biblioteca.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.biblioteca.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+</head>
+<body>
+<div id="site_wrap">
+	<div id="site_content">
+		{{SEC_TOP}}
+		<div class="row_wide_content" style="height: 46px;">
+			<span class="t18 dark_gray bold" style="position: absolute; left: 22px; bottom: 5px;">Biblioteca (<a id="bib-cnt" class="red">{{TOTAL}}</a>)</span>
+			<a class="btn_add" href="a.biblioteca_editar.php" style="right: 22px; bottom: 5px;">+ Adicionar</a>
+		</div>
+		<div class="row_wide_content" style="height: 150px;">
+			<div style="position: absolute; left: 22px; top: 0; width: 1054px; height: 148px; background-color: #efefef; border: 1px solid #999999;">
+				<input id="i-tipo-arq" type="hidden" name="f-tipo-arq" value="1">
+				<input id="i-tipo-lnk" type="hidden" name="f-tipo-lnk" value="1">
+				<input id="i-busca" class="iText_in" type="text" placeholder="- procurar por -" name="f-busca" maxlength="255" style="position: absolute; left: 240px; top: 20px; width: 500px; border: 1px solid #aeaeae;">
+				<a id="arq-c" class="check1" href="javascript:void(0);" onclick="ckTipoArq();" style="left: 770px; top: 26px; font-size: 11px;">Arquivos</a>
+				<a id="lnk-c" class="check1" href="javascript:void(0);" onclick="ckTipoLnk();" style="left: 850px; top: 26px; font-size: 11px;">Links</a>
+				<a id="filter" class="filter_drop drp" href="javascript:void(0);" onclick="dropFilter();" style="left: 240px; top: 50px;"><span class="drp" id="filter_text">Todos</span><img class="drp" id="filter_img" src="img/drop0.png"></a>
+				<span class="abs" style="left: 160px; top: 20px; line-height: 30px;">Procurar:</span>
+				<span class="abs" style="left: 160px; top: 50px; line-height: 30px;">Estado(s):</span>
+				<a class="btn_add" href="javascript:void(0);" onclick="doSearch();" style="left: 240px; top: 96px;">Buscar</a>
+			</div>
+		</div>
+		<div class="row_wide_content" style="height: 30px;"><!-- gap --></div>
+		<div id="results"></div>
+		<div class="row_wide_content" style="height: 60px;"><!-- gap --></div>
+	</div>
+</div>
+<div class="drp" id="drop_box"></div>
+</body>
+</html>

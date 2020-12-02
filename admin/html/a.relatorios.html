@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.relatorios.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.date.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.relatorios.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+
+	<!-- google charts -->
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script type="text/javascript">google.load("visualization", "1", {packages:["corechart"]});</script>
+</head>
+<body>
+<div class="site-wrap">
+	{{SEC_TOP}}
+	<div class="content" style="padding: 14px 20px 2px 20px;">
+		<div class="rel-box fl mt-10" style="width:600px;padding:20px;">
+			<span class="rel-box-title bold t16 fl">Relatórios</span>
+			<select id="rel-selected" class="iText clear fl" style="margin-top:10px;width:100%;" onchange="relOpcoes();">
+				<option value="">- selecione o relatório -</option>
+				<optgroup label="ADESÃO">
+					<option value="r1_1">Total de DNs</option>
+					<option value="r1_2">Quantos já acessaram</option>
+					<option value="r1_3">Novos acessos</option>
+					<option value="r1_4">Por mês e acumulado do ano</option>
+				</optgroup>
+				<optgroup label="VOLUME DE ACESSOS">
+					<option value="r2_1">Quantidade de acessos por mês</option>
+					<option value="r2_2">Quantidade de acessos por ano</option>
+					<option value="r2_3">Volume de acessos por DN</option>
+					<option value="r2_4">Volume de acessos por Região</option>
+				</optgroup>
+				<optgroup label="APLs">
+					<option value="r3_1">APLs enviadas por mês</option>
+				</optgroup>
+				<optgroup label="LICITAÇÕES">
+					<option value="r4_1">Quantitativo total de processos Estaduais, Federais e Municipais</option>
+					<option value="r4_2">Quantitativo de licitações recusadas pela GELIC e pela Fábrica</option>
+					<option value="r4_3">Quantitativo de licitações em andamento, derrota, vitória e sem envio de APL</option>
+					<option value="r4_4">Licitações e Veículos - Totais</option>
+					<option value="r4_5">Licitações por Data de Insersão</option>
+				</optgroup>
+				<optgroup label="STATUS">
+					<option value="r5_1">Relatório por status - Licitações e Veículos</option>
+				</optgroup>
+				<optgroup label="DNs">
+					<option value="r6_1">Lista de licitações por DN</option>
+					<option value="r6_2">Lista de licitações por status</option>
+					<option value="r6_3">Lista de licitações por prazo</option>
+				</optgroup>
+			</select>
+			<span id="descricao" class="t13 clear fl mt-4" style="display:none;width:100%;background-color:#eeeeee;padding:4px 10px;box-sizing:border-box;line-height:18px;color:#666666;"></span>
+			<span class="t13 clear fl sta" style="display:none;margin-top:20px;color:#282828;">Selecione o status</span>
+			<a id="status" class="clear fl filtro1 sta drp" href="javascript:void(0);" onclick="dropBox();" style="display:none;">Status (<span>0</span>)<img src="img/a-down-g.png"></a>
+			<span class="t13 clear fl mt-20 lh-20 dt" style="display:none;"><a class="italic gray-99">(opcional - deixe em branco para todos)</a></span>
+			<span class="t13 clear fl lh-34 gray-60 dt" style="display:none;">Período de</span>
+			<input id="rel-periodo-fr" class="iText fl dt" style="display:none;margin-left: 10px; width: 120px;">
+			<span class="t13 fl ml-10 lh-34 gray-60 dt" style="display:none;">até</span>
+			<input id="rel-periodo-to" class="iText fl dt" style="display:none;margin-left: 10px; width: 120px;">
+			<a id="rel-detalhamento" class="itm-cb0 fl clear detalhamento" href="javascript:void(0);" onclick="justCheck(this);" style="margin-top:20px;display:none;">Incluir detalhamento</a>
+			<a class="rel-btn-xlsx clear fl mt-30" href="javascript:void(0);" onclick="relatorio('xlsx');" style="display:none;">Gerar Relatório</a>
+			<a class="rel-btn-pdf fr mt-30" href="javascript:void(0);" onclick="relatorio('pdf');" style="display:none;">Gerar Relatório</a>
+			<div class="clear" style="height: 20px;"><!-- --></div>
+		</div>
+	</div>
+	<div class="content" style="height:40px;"></div>
+</div>
+<div id="drop-box" class="drp"></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.mensagens.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.mensagens.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+</head>
+<body>
+<div class="site-wrap">
+	{{SEC_TOP}}
+	<div class="content" style="padding: 14px 20px 2px 20px; border-bottom: 1px solid #666666;">
+		<span class="t18 bold lh-30 fl">Mensagens</span>
+	</div>
+
+	<div class="content">
+		<div class="content-inside pt-14">
+			<a id="filtro-0" class="fl drp filtro0" href="javascript:void(0);" onclick="buscaFiltro(0);" title="">- recipiente -<img src="img/a-down-g.png"></a>
+			<a id="filtro-1" class="fl drp filtro0 ml-12" href="javascript:void(0);" onclick="buscaFiltro(1);" title="">- notificação -<img src="img/a-down-g.png"></a>
+			<a id="filtro-2" class="fl drp filtro0 ml-12" href="javascript:void(0);" onclick="buscaFiltro(2);" title="">- método -<img src="img/a-down-g.png"></a>
+		</div>
+		<div class="content-inside" style="height: 20px;">
+			<a id="limpa-0" class="drop-limpa drp" href="javascript:void(0);" onclick="limpaFiltro(0);" style="display: none; left: 0px;">limpar<img src="img/x.png"></a>
+			<a id="limpa-1" class="drop-limpa drp" href="javascript:void(0);" onclick="limpaFiltro(1);" style="display: none; left: 172px;">limpar<img src="img/x.png"></a>
+			<a id="limpa-2" class="drop-limpa drp" href="javascript:void(0);" onclick="limpaFiltro(2);" style="display: none; left: 344px;">limpar<img src="img/x.png"></a>
+		</div>
+
+		<div class="content-inside pt-14">
+			<a id="tab0" class="bt-novas0" href="javascript:void(0);" onclick="tab(0);">Novas (<span>...</span>)</a>
+			<a id="tab1" class="bt-processando0" href="javascript:void(0);" onclick="tab(1);" style="margin-left:1px;">Processando (<span>...</span>)</a>
+			<a id="tab2" class="bt-erro0" href="javascript:void(0);" onclick="tab(2);" style="margin-left:1px;">Erro (<span>...</span>)</a>
+			<a id="tab3" class="bt-sucesso0" href="javascript:void(0);" onclick="tab(3);" style="margin-left:1px;">Sucesso (<span>...</span>)</a>
+		</div>
+		<div id="tab-underline" class="content-inside" style="height:12px;"></div>
+		<div class="content-inside">
+			<span id="tab-title" class="fl bold t15 lh-24 italic">Novas</span>
+			<a id="bm-rem" class="sel-rem0" href="javascript:void(0);" onclick="" title="Remover Selecionadas"></a>
+			<a id="bm-ref" class="sel-ref0 mr-8" href="javascript:void(0);" onclick="" title="Re-Enviar Selecionadas"></a>
+			<span id="bm-sel" class="fr lh-24 mr-10 italic">Selecionadas (0)</span>
+		</div>
+		<div class="content-inside pt-14" style="border-bottom: 1px solid #aaaaaa;">
+			<span style="float: left; width: 249px; font-weight: bold; margin-left: 69px; line-height:19px;">Destino</span>
+			<span style="float: left; width: 209px; font-weight: bold; line-height:19px;">Assunto</span>
+			<span style="float: left; font-weight: bold; line-height:19px;">Mensagem</span>
+			<a id="sel-all" class="mch0 fr" href="javascript:void(0);" onclick="selecionarTodas(this);" style="margin: 0 2px 2px 0;" title="Selecionar Todas"></a>
+		</div>
+	</div>
+
+	<div class="content pb-60">
+		<div id="m-holder" class="content-inside"></div>
+		<div id="loader-more" class="content-inside" style="display: none; text-align: center; padding-top: 12px;"><img src="img/loader-more.gif" style="border:0;width:24px;height:8px;"></div>
+	</div>
+</div>
+<div id="drop-filtro" class="drp"></div>
+</body>
+</html>

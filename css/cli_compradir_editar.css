@@ -1,0 +1,72 @@
+/***  IDs  ***/
+#anexo-box {
+	position: relative;
+	clear: left;
+	float: left;
+	width: 540px;
+	margin-left: 240px;
+	margin-top: 6px;
+	box-sizing: border-box;
+	border: 1px solid #d1d1d1;
+	height: 36px;
+	}
+
+#anexo-loading-bar {
+	position: absolute;
+	left: 1px;
+	top: 1px;
+	width: 536px;
+	height: 32px;
+	background-color: #cce74e;
+	}
+
+#anexo-loading-per {
+	position: absolute;
+	left: 1px;
+	top: 1px;
+	line-height: 32px;
+	width: 536px;
+    text-align: center;
+	}
+
+
+/***  CLASSES  ***/
+.file-upload {
+	position: absolute;
+	left: -2000px;
+	top: -2000px;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	}
+
+a:link.rb0, a:visited.rb0 {
+	position: relative;
+	height: 17px;
+	background-image: url('../img/rb0.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	line-height: 17px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 22px;
+	font-size: 13px;
+	float: left;
+	}
+
+a:link.rb1, a:visited.rb1 {
+	position: relative;
+	height: 17px;
+	background-image: url('../img/rb1.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	line-height: 17px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 22px;
+	font-size: 13px;
+	float: left;
+	}
+

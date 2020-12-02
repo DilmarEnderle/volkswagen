@@ -1,0 +1,19 @@
+SELECT lic.id, 
+			lic.orgao, 
+			lic.objeto, 
+			lic.datahora_abertura, 
+			lic.datahora_entrega, 
+			DATEDIFF(DATE(lic.datahora_abertura), CURRENT_DATE()) AS data_abertura_dias,
+			UNIX_TIMESTAMP(lic.datahora_limite) - UNIX_TIMESTAMP() AS limite,
+			lic.fase,
+			lic.valor,
+			lic.numero,
+			cid.nome AS cidade, 
+			cid.uf AS uf,
+			mdl.nome AS modalidade,
+			labas.id_status,
+			(SELECT tipo FROM gelic_historico WHERE id_licitacao = lic.id ORDER BY id DESC LIMIT 1) AS ultimo_tipo,
+			(SELECT MAX(id) FROM gelic_historico WHERE id_licitacao = lic.id AND tipo IN (1,2)) AS mensagem_global FROM gelic_licitacoes AS lic
+			INNER JOIN gelic_licitacoes_abas AS labas ON labas.id_licitacao = lic.id AND labas.grupo = 1
+			INNER JOIN gelic_cidades AS cid ON cid.id = lic.id_cidade
+			INNER JOIN gelic_modalidades AS mdl ON mdl.id = lic.id_modalidade WHERE lic.deletado = 0 AND datahora_abertura < NOW() GROUP BY lic.id ORDER BY lic.datahora_abertura DESC LIMIT 0,12

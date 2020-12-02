@@ -1,0 +1,145 @@
+/*** HTML SELECTORS ***/
+
+/*** UNIQUE IDS ***/
+#processando, #t-processando, #bo-processando {
+	display: none;
+	background-image: url('../img/spinner.gif');
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding: 0 0 0 34px;
+	line-height: 28px;
+	height: 28px;
+	}
+
+/*** CLASSES ***/
+.t1 {
+	color: #ffffff;
+	background-color: #00b400;
+	padding: 0 6px 0 6px;
+	border-radius: 2px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	}
+
+.t0 {
+	color: #ffffff;
+	background-color: #cccccc;
+	padding: 0 6px 0 6px;
+	border-radius: 2px;
+	text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+	}
+
+a:link.menu-item1, a:visited.menu-item1 {
+	display: block;
+	position: relative;
+	background-color: #666666;
+	text-align: left;
+	padding-left: 20px;
+	height: 40px;
+	text-decoration: none;
+	line-height: 40px;
+	color: #ffffff;
+	font-size: 13px;
+	}
+
+.menu-item1 img, .menu-item0 img {
+	border: 0;
+	position: absolute;
+	right: 15px;
+	top: 12px;
+	height: 16px;
+	width: 16px;
+	}
+
+a:link.menu-item0, a:visited.menu-item0 {
+	display: block;
+	position: relative;
+	background-color: #eeeeee;
+	text-align: left;
+	padding-left: 20px;
+	height: 40px;
+	text-decoration: none;
+	line-height: 40px;
+	color: #0000ff;
+	font-size: 13px;
+	}
+a:hover.menu-item0 {
+	color: #ffffff;
+	text-decoration: none;
+	background-color: #999999;
+	}
+
+.left-side {
+	float: left;
+	width: 240px;
+	margin-left: 22px;
+	}
+
+.conf-right-cnf-holder {
+	position: relative;
+	width: 796px;
+	float: left;
+	margin: 20px 0 0 20px;
+	}
+
+.title-box {
+	border-bottom: 1px dashed #e0e0e0;
+	overflow: hidden;
+	}
+
+.content-box {
+	margin-top: 20px;
+	overflow: hidden;
+	}
+
+.row-item {
+	position: relative;
+	overflow: hidden;
+	border-bottom: 1px solid #dedede;
+	height: 30px;
+	}
+
+a:link.check0, a:visited.check0 {
+	display: inline-block;
+	position: relative;
+	height: 15px;
+	background-image: url('../img/check00.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #666666;
+	font-size: 14px;
+	line-height: 15px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 20px; 
+	margin-bottom: 9px;
+	}
+a:hover.check0 {
+	background-image: url('../img/check01.png');
+	}
+
+a:link.check1, a:visited.check1 {
+	display: inline-block;
+	position: relative;
+	height: 15px;
+	background-image: url('../img/check10.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	font-size: 14px;
+	line-height: 15px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 20px;
+	margin-bottom: 9px; 	
+	}
+a:hover.check1 {
+	background-image: url('../img/check11.png');
+	}
+
+.sub-section {
+	background-color: #444444;
+	color: #ffffff;
+	line-height: 24px;
+	padding: 0 10px;
+	margin: 12px 0 8px 0;
+	}

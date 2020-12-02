@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+    <link rel="stylesheet" type="text/css" href="css/a.cliente_historico.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="../../TinyMCE-4.3.7/tinymce.min.js?{{VERSION}}"></script>
+   	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.cliente_historico.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+</head>
+<body>
+<input id="id-cliente" type="hidden" value="{{ID_CLIENTE}}">
+<div class="site-wrap">
+	{{SEC_TOP}}
+	<div class="content" style="border-bottom: 1px solid #cccccc; background-color: #f0f0f0;">
+		<div class="content-inside" style="padding: 20px 0 20px 0;">
+			<span class="t14 bold fl lh-34">Cliente:</span>
+			<select id="i-cliente" class="iText fl" style="padding: 0 0 0 4px; width: 800px; margin-left:10px;" onchange="goCliente(this.value);">
+				<option value="0">- selecione um cliente -</option>
+				{{CLIENTES}}
+			</select>
+		</div>
+	</div>
+	<div id="historico" class="content" style="padding:30px 0 60px 0;"></div>
+	<div id="msg" class="content pt-20 pb-100" style="display:none; border-top: 1px solid #cccccc;">
+		<div class="content-inside mb-8 w-800">
+			<span class="t20 gray-33 fl mt-10 lh-26 bold">Novo Registro</span>
+		</div>
+		<div class="content-inside w-800">
+			<textarea id="i-mensagem" name="msg" placeholder="- digite aqui a mensagem -"></textarea>
+		</div>
+		<div class="content-inside w-800" style="border: 1px solid #cccccc; border-top: 0; height: 37px;">
+			<div id="upl-btn" style="display: block;">
+				<span class="t11 red" style="position: absolute; right: 14px; top: 0; line-height: 37px;">Máx. 100 MB</span>
+				<img src="img/pc-top.png" style="position: absolute; left: 12px; top: 1px;">
+				<a class="upl-btn" href="javascript:void(0);" onclick="selectFile();"><img src="img/pc-bot.png">Anexar Arquivo</a>
+			</div>
+			<div id="upl-loading" style="display: none;">
+				<div id="upl-bar"></div>
+				<span id="upl-per">Carregando...100%</span>
+			</div>
+			<div id="upl-ready" style="display: none;">
+				<img src="img/file.png" style="position: absolute; left: 6px; top: 6px; border: 0;">
+				<span id="upl-filename" class="t13 red italic" style="position: absolute; left: 40px; top: 6px; line-height: 24px;">---</span>
+				<span id="upl-filesize" class="gray-4c italic t11" style="position: absolute; right: 40px; top: 6px; line-height: 24px;">0 bytes</span>
+				<a class="btn-x24" href="javascript:void(0);" onclick="cancelUpload();" style="right: 6px; top: 6px;" title="Cancelar"></a>
+			</div>
+		</div>
+		<div id="postar-box" class="content-inside mt-10 w-800">
+			<a class="bt-style-1" href="javascript:void(0);" onclick="postar();" style="height:50px; line-height:50px; font-size:13px; padding: 0 40px;">Postar</a>
+		</div>
+		<div id="processando-box" class="content-inside mt-10 w-800" style="display: none;">
+			<div class="processando">Processando...</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

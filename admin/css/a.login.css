@@ -1,0 +1,93 @@
+body {
+	background-image: none;
+	background-color: #e0e0e0;
+	color: #000000;
+	font-family: 'Arial', 'Tahoma';
+	font-size: 12px;	
+	}
+
+/**** IDs ****/
+#login-window {
+	position: absolute;
+	left: 265px;
+	bottom: 0;
+	width: 570px;
+	height: 340px;
+	background-color: #ffffff;
+	}
+
+#adm-drop-contents-L {
+	display: none;
+	position: absolute;
+	left: 100px;
+	top: 100px;
+	border: 1px solid #dddddd;
+	background-color: #ffffff;
+	overflow: hidden;
+	box-shadow: 1px 1px 2px -1px #888888;
+	border-radius: 3px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	}
+
+/**** CLASSES ****/
+.login-row {
+	position: relative;
+	width: 570px;
+	margin: 0 auto;
+	background-color: #ffffff;
+	overflow: hidden;
+	}
+
+a:link.lk, a:visited.lk {
+	line-height: 32px;
+	color: #0044ff;
+	font-size: 15px;
+	text-decoration: none;
+	}
+a:hover.lk, a:active.lk {
+	color: #0000ff;
+	text-decoration: underline;
+	}
+
+a:link.adm-dropL, a:visited.adm-dropL {
+	position: relative;
+	display: block;
+	line-height: 40px;
+	text-align: left;
+	padding: 0 0 0 16px;
+	text-decoration: none;
+	color: #000000;
+	font-size: 13px;
+	background: linear-gradient(#ffffff, #eeeeee);
+	}
+a:hover.adm-dropL, a:active.adm-dropL {
+	color: #555555;
+	background: linear-gradient(#ffffff, #ffffff);
+	}
+
+.adm-dropL img {
+	position: absolute;
+	right: 17px;
+	top: 17px;
+	border: 0;
+	width: 8px;
+	height: 6px;
+	}
+
+a:link.adm-drop-item-L, a:visited.adm-drop-item-L {
+	display: block;
+	position: relative;
+	height: 32px;
+	padding: 0 18px;
+	line-height: 32px;
+	font-size: 13px;
+	color: #000000;
+	text-align: right;
+	text-decoration: none;
+	white-space: nowrap;
+	}
+a:hover.adm-drop-item-L {
+	text-decoration: none;
+	background-color: #f6cefc;
+	}

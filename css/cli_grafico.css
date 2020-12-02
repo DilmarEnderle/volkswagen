@@ -1,0 +1,100 @@
+#drop-box {
+	display: none;
+	position: absolute;
+	left: 100px;
+	top: 100px;
+	border: 1px solid #aeaeae;
+	background-color: #ffffff;
+	overflow: auto;
+	max-height: 280px;
+	}
+
+a:link.cb0, a:visited.cb0 {
+	position: relative;
+	height: 17px;
+	background-image: url('../img/cb0.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	line-height: 17px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 22px;
+	font-size: 13px;
+	float: left;
+	}
+
+a:link.cb1, a:visited.cb1 {
+	position: relative;
+	height: 17px;
+	background-image: url('../img/cb1.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	line-height: 17px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 22px;
+	font-size: 13px;
+	float: left;
+	}
+
+a:link.filtro1, a:visited.filtro1 {
+	position: relative;
+	display: inline-block;
+	height: 38px;
+	width: 200px;
+	line-height: 36px;
+	color: #282828;
+	text-align: left;
+	font-size: 14px;
+	padding: 0 0 0 10px;
+	text-decoration: none;
+	border: 1px solid #d1d1d1;
+	box-sizing: border-box;
+	}
+a:hover.filtro1, a:active.filtro1 {
+	text-decoration: none;
+	}
+
+.filtro1 img {
+	position: absolute;
+	right: 10px;
+	top: 13px;
+	border: 0;
+	width: 8px;
+	height: 6px;
+	}
+
+a:link.drop-item0, a:visited.drop-item0 {
+	display: block;
+	position: relative;
+	height: 26px;
+	padding: 0 15px 0 36px;
+	line-height: 26px;
+	font-size: 13px;
+	color: #000000;
+	text-decoration: none;
+	background-image: url('../img/cbw0.png');
+	background-repeat: no-repeat;
+	background-position: 12px 5px;
+	}
+a:hover.drop-item0 {
+	text-decoration: none;
+	background-color: #eeeeee;
+	}
+	
+a:link.drop-item1, a:visited.drop-item1, a:hover.drop-item1 {
+	display: block;
+	position: relative;
+	height: 26px;
+	padding: 0 15px 0 36px;
+	line-height: 26px;
+	font-size: 13px;
+	color: #000000;
+	text-decoration: none;
+	background-color: #ffe17a;
+	background-image: url('../img/cbw1.png');
+	background-repeat: no-repeat;
+	background-position: 12px 5px;
+	}

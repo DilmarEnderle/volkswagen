@@ -1,0 +1,121 @@
+/**** IDs ****/
+#i-mensagem {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 200px;
+	outline: none;
+	resize: none;
+	border-top: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	border-bottom: 0;
+	background-color: #f4f4f5;
+	font-size: 12px;
+	font-family: verdana;
+	padding: 6px 10px;
+	line-height: 16px;
+	box-sizing: border-box;
+	}
+
+#upl-bar {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 798px;
+	height: 36px;
+	background-color: #d0e429;
+	}
+
+#upl-per {
+	position: absolute;
+	left: 0;
+	top: 0;
+	line-height: 38px;
+	width: 798px;
+	text-align: center;
+	font-size: 13px;
+	}
+
+
+
+/* CLASSES */
+.h-box-minha {
+	border: 1px solid #bbbbbb;
+	padding: 4px 14px;
+	overflow: hidden;
+	box-shadow: 1px 1px 2px #cccccc;
+	background-color: #f0f0f0;
+	width: 930px;
+	margin-top: 8px;
+	}
+
+.h-box-outros {
+	border: 1px solid #bbbbbb;
+	padding: 4px 14px;
+	overflow: hidden;
+	box-shadow: 1px 1px 2px #cccccc;
+	width: 930px;
+	margin-top: 8px;
+	}
+
+a:link.upl-btn, a:visited.upl-btn {
+	display: block;
+	position: absolute;
+	height: 29px;
+	left: 4px;
+	top: 4px;
+	background-color: #2c2a38;
+	color: #ffffff;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 29px;
+	text-decoration: none;
+	padding: 0 16px 0 34px;
+	}
+
+a:hover.upl-btn {
+	text-decoration: none;
+	background-color: #413f52;
+	}
+
+.upl-btn img {
+	position: absolute;
+	width: 12px;
+	height: 21px;
+	border: 0;
+	left: 8px;
+	top: 0;
+	}
+
+.processando {
+	background-image: url('../img/spinner.gif');
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding: 0 0 0 34px;
+	line-height: 28px;
+	font-size: 13px;
+	font-style: italic;
+	}
+
+.file-upload {
+	position: absolute;
+	left: -200px;
+	top: -200px;
+	width: 0;
+	height: 0;
+	opacity: 0;
+	}
+	
+a:link.btn-x24, a:visited.btn-x24 {
+	display: block;
+	position: absolute;
+	height: 24px;
+	width: 24px;
+	background-image: url('../img/x0.png');
+	}
+a:hover.btn-x24 {
+	background-image: url('../img/x1.png');
+	}
+

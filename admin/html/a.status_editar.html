@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.status_editar.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.status_editar.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jscolor/jscolor.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+</head>
+<body>
+<div class="site-wrap">
+	{{SEC_TOP}}
+	<div class="content" style="padding: 14px 20px 2px 20px;">
+		<span class="t18 bold lh-30 fl">{{TITLE}}</span>
+	</div>
+
+	<div class="content" style="padding: 8px 20px 0 20px;">
+		<a class="bt-cancelar fr mt-12" href="a.status.php" title="Cancelar">X</a>
+		<div style="position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background-color: #999999;"><!-- --></div>
+		<a class="aba1 tb" href="javascript:void(0);">Status</a>
+	</div>
+
+	<div class="content" style="padding: 20px 0 60px 0;">
+		<div class="content-inside" style="border: 1px solid #666666; padding: 20px 0;">
+			<form id="status-form">
+				<input type="hidden" id="i-id" name="f-id" value="{{ID}}">
+
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Descrição <a class="t10 bold red">*</a></span>
+					<input id="i-descricao" class="iText" type="text" placeholder="- descrição do status -" name="f-descricao" maxlength="60" value="{{DESCRICAO}}" style="position: absolute; left: 300px; top: 0; width: 514px;">
+				</div>
+				<div style="position: relative; height: 80px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Cor Texto <a class="t10 bold red">*</a></span>
+					<span class="t13 abs" style="left: 140px; top: 40px; line-height: 34px;">Cor Fundo <a class="t10 bold red">*</a></span>
+					<input id="i-cor-texto" class="iText color {pickerMode:'HVS',onImmediateChange:'atualizaExemplo();'}" type="text" name="f-cor_texto" maxlength="6" value="{{COR_TEXTO}}" style="position: absolute; left: 300px; top: 0; width: 100px;">
+					<input id="i-cor-fundo" class="iText color {pickerMode:'HVS',onImmediateChange:'atualizaExemplo();'}" type="text" name="f-cor_fundo" maxlength="6" value="{{COR_FUNDO}}" style="position: absolute; left: 300px; top: 40px; width: 100px;">
+					<img src="img/fork.png" style="position: absolute; left: 400px; top: 17px;">
+					<span class="exemplo" style="color: #{{COR_TEXTO}}; background-color: #{{COR_FUNDO}};">Exemplo</span>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Status Inicial <a class="t10 bold red">*</a></span>
+					<a id="i-inicial-sim" class="check-dot{{INICIAL_SIM}} cl-inicial" href="javascript:void(0);" onclick="ckSingle(this,'inicial');" style="left: 300px; top: 10px;">Sim</a>
+					<a id="i-inicial-nao" class="check-dot{{INICIAL_NAO}} cl-inicial" href="javascript:void(0);" onclick="ckSingle(this,'inicial');" style="left: 370px; top: 10px;">Não</a>
+				</div>
+			</form>
+			<div id="i-salvar-box" style="position: relative; height: 28px; margin-top: 20px;">
+				<a class="bt-style-1" href="javascript:void(0);" onclick="salvarStatus();" style="display: inline-block; position: absolute; left: 300px; top: 0;">{{BT_TEXTO}}</a>
+			</div>
+			<div id="i-processando-box" style="display: none; position: relative; height: 28px; margin-top: 20px;">
+				<div class="processando">Salvando...</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

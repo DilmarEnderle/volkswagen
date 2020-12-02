@@ -1,0 +1,59 @@
+/***  CLASSES  ***/
+.cd-row {
+	position: relative;
+	height: 146px;
+	border: 1px solid #c6c6c6;
+	box-sizing: border-box;
+	margin-bottom: 4px;
+	}
+
+.cd-img {
+	position: absolute;
+	left: 12px;
+	top: 12px;
+	border: 0;
+	}
+
+.cd-info {
+	position: absolute;
+	left: 120px;
+	top: 17px;
+	overflow: hidden;
+	}
+
+.cd-lbs {
+	line-height: 22px;
+	margin: 0;
+	float: left;
+	}
+
+.cd-vals {
+	line-height: 22px;
+	margin: 0 0 0 10px;
+	float: left;
+	}
+
+a:link.cd-btn, a:visited.cd-btn {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 100px;
+	height: 144px;
+	background-color: #c6c6c6;
+	background-image: url('../img/cd-right.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+	}
+a:hover.cd-btn, a:active.cd-btn {
+	background-color: #dedede;
+	}
+
+.cd-btn-remover { position: absolute; bottom: 12px; right: 112px; border: 0; }
+.cd-btn-remover:hover { opacity: 0.6; }
+
+.cd-btn-editar { position: absolute; bottom: 12px; right: 140px; border: 0; }
+.cd-btn-editar:hover { opacity: 0.6; }
+
+.cd-btn-anexo { position: absolute; bottom: 10px; right: 170px; border: 0; }
+.cd-btn-anexo:hover { opacity: 0.6; }
+

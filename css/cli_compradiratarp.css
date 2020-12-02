@@ -1,0 +1,56 @@
+/***  CLASSES  ***/
+.td_cell {
+	height: 40px;
+	line-height: normal;
+	text-align: left;
+	padding: 0 10px;
+	border: 1px solid #999999;
+	color: #444444;
+	box-sizing: border-box;
+	}
+
+.atarp-tbl tr:nth-child(even) { background-color: #f0f0f0; }
+
+.file-box {
+	position: relative;
+	width: 100%;
+	height: 32px;
+	margin-bottom: 6px;
+	border: 1px solid #dddddd;
+	float: left;
+	}
+
+a:link.fb-a, a:visited.fb-a {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 32px;
+	line-height: 32px;
+	font-size: 13px;
+	padding-left: 34px;
+	text-decoration: none;
+	color: #0000ff;
+	box-sizing: border-box;
+	}
+a:hover.fb-a, a:active.fb-a {
+	color: #000000;
+	text-decoration: none;
+	background-color: #aaaaaa;
+	opacity: 0.3;
+	}
+
+a:link.da-g, a:visited.da-g {
+	display: inline-block;
+	width: 55px;
+	height: 27px;
+	font-size: 12px;
+	background-color: #cccccc;
+	text-decoration: none;
+	padding: 4px 0;
+	color: #ffffff;
+	}
+a:hover.da-g {
+	text-decoration: none;
+	}

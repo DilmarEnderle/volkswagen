@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.compradir_abrir.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.date.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.maskMoney.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="../../TinyMCE-4.3.7/tinymce.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.compradir_abrir.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+</head>
+<body>
+<form id="upload-form" enctype="multipart/form-data"></form>
+<div class="site-wrap">
+	{{SEC_TOP}}
+	<div class="content" style="padding: 14px 20px 2px 20px; border-bottom: 1px solid #666666;">
+		<span class="t18 bold lh-30 fl">Compra Direta/SRP (Solicitações) <a class="red t14">DN: {{DN}}</a></span>
+	</div>
+	<input id="id-cd" type="hidden" value="{{ID}}">
+	<div class="content pb-60 pt-40">
+		<a class="bt-style-2" style="position: absolute; left: 20px; top: 8px;" href="a.compradir_lista.php?id={{ID_CLIENTE}}">&lt; Voltar</a>
+		<div class="content-inside">
+			{{ROW}}
+			{{APL}}
+			<div id="historico"></div>
+			{{SND}}
+		</div>
+	</div>
+</div>
+</body>
+</html>

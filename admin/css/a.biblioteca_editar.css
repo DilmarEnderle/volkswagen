@@ -1,0 +1,233 @@
+/*================*/
+/*   UNIQUE IDS   */
+/*================*/
+#upload-holder {
+	position: absolute;
+	left: 300px;
+	top: 0;
+	width: 572px;
+	height: 38px;
+	border: 1px solid #666666;
+	}
+
+#upl-btn {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 572px;
+	height: 38px;
+	}
+
+#upl-load {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 572px;
+	height: 38px;
+	}
+
+#upl-bar {
+	position: absolute;
+	left: 4px;
+	top: 4px;
+	width: 280px;
+	height: 30px;
+	background-color: #e2e99e;
+	}
+
+#upl-per {
+	position: absolute;
+	left: 0;
+	top: 0;
+	line-height: 38px;
+	width: 572px;
+	text-align: center;
+	}
+
+#upl-ready {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 572px;
+	height: 38px;
+	}
+
+
+
+/*================*/
+/*   CLASSES      */
+/*================*/
+.sec_holder {
+	position: relative;
+	left: 22px;
+	width: 1056px;
+	overflow: hidden;
+	}
+	
+.sec_left {
+	width: 1054px;
+	border: 1px solid #c0c0c0;
+	}
+	
+.sec_right {
+	width: 521px;
+	border: 1px solid #c0c0c0;
+	float: right;
+	}
+	
+.sec_row {
+	position: relative;
+	width: 1054px;
+	}
+	
+a:link.check0, a:visited.check0 {
+	position: absolute;
+	height: 15px;
+	background-image: url('../img/check00.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 15px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 20px; 	
+	}
+a:hover.check0 {
+	background-image: url('../img/check01.png');
+	}
+
+a:link.check1, a:visited.check1 {
+	position: absolute;
+	height: 15px;
+	background-image: url('../img/check10.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 15px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 20px; 	
+	}
+a:hover.check1 {
+	background-image: url('../img/check11.png');
+	}
+	
+a:link.check_dot0, a:visited.check_dot0 {
+	position: absolute;
+	height: 15px;
+	background-image: url('../img/check00.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 15px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 20px; 	
+	}
+a:hover.check_dot0 {
+	background-image: url('../img/check01.png');
+	}
+	
+a:link.check_dot1, a:visited.check_dot1, a:hover.check_dot1 {
+	position: absolute;
+	height: 15px;
+	background-image: url('../img/checkdot.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 15px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 20px; 	
+	}
+	
+a:link.btn_save, a:visited.btn_save {
+	display: block;
+	position: absolute;
+	height: 40px;
+	background: linear-gradient(to bottom, #fe8e5e 0%, #d6360b 100%);
+	color: #ffffff;
+	font-family: Tahoma, Arial;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 40px;
+	text-decoration: none;
+	padding: 0 20px 0 20px;
+	}
+a:hover.btn_save {
+	color: #ffffff;
+	background: linear-gradient(to bottom, #e35327 0%, #e35327 100%);
+	text-decoration: none;
+	}
+
+a:link.upl-btn, a:visited.upl-btn {
+	display: block;
+	position: absolute;
+	height: 30px;
+	left: 4px;
+	top: 4px;
+	background-color: #299ac5;
+	color: #ffffff;
+	font-family: Tahoma, Arial;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 30px;
+	text-decoration: none;
+	padding: 0 16px 0 34px;
+	}
+a:hover.upl-btn {
+	text-decoration: none;
+	background-color: #28afe2;
+	}
+
+.upl-btn img {
+	position: absolute;
+	width: 12px;
+	height: 21px;
+	border: 0;
+	left: 8px;
+	top: 0;
+	}
+
+.iText_lib {
+	display: block;
+	position: absolute;
+	left: 300px;
+	top: 0;
+	color: #000099;
+	font-family: Tahoma, Arial;
+	font-size: 13px;
+	border: 0;
+	outline: none;
+	margin: 0;
+	width: 560px;
+	border: 1px solid #666666;
+	height: 38px;
+	padding: 0 6px 0 6px;
+	background-color: #ffffff;
+	}
+
+.file_upload { position: absolute; left: -400px; top: -400px; width: 0; height: 0; opacity: 0; }
+
+a:link.btn_x24, a:visited.btn_x24 {
+	display: block;
+	position: absolute;
+	height: 24px;
+	width: 24px;
+	background-image: url('../img/x0.png');
+	}
+a:hover.btn_x24 {
+	background-image: url('../img/x1.png');
+	}

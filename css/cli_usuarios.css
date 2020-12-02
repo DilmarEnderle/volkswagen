@@ -1,0 +1,43 @@
+/***  CLASSES  ***/
+.usr_nome {
+	height: 40px;
+	line-height: normal;
+	text-align: left;
+	padding: 0 10px;
+	border: 1px solid #bebebe;
+	border-top: none;
+	}
+
+.usr_dep {
+	line-height: normal;
+	text-align: left;
+	padding: 0 10px;
+	border: 1px solid #bebebe;
+	border-left: none;
+	border-top: none;
+	}
+
+.usr_email {
+	line-height: normal;
+	text-align: left;
+	padding: 0 10px;
+	border: 1px solid #bebebe;
+	border-left: none;
+	border-top: none;
+	}
+
+.usr_acao {
+	line-height: normal;
+	text-align: left;
+	padding: 0 10px;
+	border: 1px solid #bebebe;
+	border-left: none;
+	border-top: none;
+	}
+
+.btn-editar { float: left; border: 0; }
+.btn-editar:hover { opacity: 0.6; }
+
+.btn-remover { float: right; border: 0; }
+.btn-remover:hover { opacity: 0.6; }
+

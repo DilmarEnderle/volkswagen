@@ -1,0 +1,39 @@
+/***  CLASSES  ***/
+.doc_btn {
+	line-height: normal;
+	text-align: center;
+	border: 1px solid #bebebe;
+	border-left: none;
+	border-top: none;
+	}
+
+.doc_name {
+	height: 40px;
+	line-height: normal;
+	text-align: left;
+	padding: 0 10px;
+	border: 1px solid #bebebe;
+	border-top: none;
+	}
+
+.doc_validade {
+	line-height: normal;
+	text-align: left;
+	padding: 6px 10px;
+	border: 1px solid #bebebe;
+	border-left: none;
+	border-top: none;
+	}
+
+.doc_status {
+	line-height: normal;
+	text-align: left;
+	padding: 6px 10px;
+	border: 1px solid #bebebe;
+	border-left: none;
+	border-top: none;
+	}
+
+.vencido_sim { color: #ff0000; }
+.vencido_nao { color: #009c00; }
+

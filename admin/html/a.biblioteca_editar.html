@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.biblioteca_editar.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="../../TinyMCE-4.3.7/tinymce.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.biblioteca_editar.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+</head>
+<body>
+<form id="form_upload" enctype="multipart/form-data"></form>
+<div id="site_wrap">
+	<div id="site_content">
+		{{SEC_TOP}}
+		<div class="row_wide_content" style="height: 46px;">
+			<span class="t18 dark_gray bold" style="position: absolute; left: 22px; bottom: 5px;">{{TITLE}}</span>
+			<div style="position: absolute; left: 22px; bottom: 1px; width: 1056px; height: 1px; background-color: #b08706;"><!-- --></div>
+            <a class="btn_add" href="a.biblioteca.php" style="right: 22px; bottom: 5px;">Cancelar</a>
+		</div>
+		<div class="row_wide_content" style="height: 10px;"><!-- --></div>
+		<div class="row_wide_content">
+        	<div class="sec_holder">
+				<div class="sec_left" style="margin-bottom: 40px;">
+					<form id="library_form">
+					<input type="hidden" name="f-id" value="{{ID}}">
+					<input type="hidden" id="i_tipo" name="f-tipo" value="{{TIPO}}">
+                	<div class="sec_row" style="height: 50px;">
+                    	<span class="t16 bold abs" style="left: 20px; top: 10px;">Informações do Item</span>
+                    </div>
+
+                	<div class="sec_row" style="height: 40px;">
+                    	<span class="t13 abs" style="left: 120px; top: 0; line-height: 40px;">Tipo <a class="t10 bold red">*</a></span>
+		                <a class="check_dot{{T_ARQ}} cl_tipo" href="javascript:void(0);" onclick="ckSingle(this,0,'tipo');" style="left: 300px; top: 6px;">Arquivo</a>
+                        <a class="check_dot{{T_LNK}} cl_tipo" href="javascript:void(0);" onclick="ckSingle(this,1,'tipo');" style="left: 380px; top: 6px;">Link</a>
+                    </div>                    
+
+                	<div id="arquivo-pen" class="sec_row" style="display: {{ARQ-P}}; height: 40px; margin-bottom: 8px;">
+						<span class="t13 abs" style="left: 120px; top: 0; line-height: 40px;">Arquivo <a class="t10 bold red">*</a></span>
+						<div id="upload-holder">
+							<div id="upl-btn" style="display: {{UPBTN}};"><img src="img/pc-top.png" style="position: absolute; left: 12px; top: 1px;"><a class="upl-btn" href="javascript:void(0);" onclick="selectFile();"><img src="img/pc-bot.png">Adicionar Arquivo</a></div>
+							<div id="upl-load">
+								<div id="upl-bar"></div>
+								<span id="upl-per">Carregando...34%</span>
+							</div>
+							<div id="upl-ready" style="display: {{UPRDY}};">
+								<img src="img/file.png" style="position: absolute; left: 7px; top: 7px; border: 0;">
+								<span id="upl-filename" style="position: absolute; left: 40px; top: 7px; line-height: 24px; font-size: 13px; color: #000099;">{{UPFILE}}</span>
+								<span id="upl-filesize" style="position: absolute; right: 40px; top: 7px; line-height: 24px; font-size: 13px; color: #000099;">{{UPBYTES}}</span>
+								<a class="btn_x24" href="javascript:void(0);" onclick="cancelUpload();" style="right: 7px; top: 7px;" title="Cancelar"></a>
+							</div>
+						</div>
+                    </div>                    
+                	<div id="link-pen" class="sec_row" style="display: {{LNK-P}}; height: 40px; margin-bottom: 8px;">
+                    	<span class="t13 abs" style="left: 120px; top: 0; line-height: 40px;">Link <a class="t10 bold red">*</a></span>
+		                <input id="i_link" class="iText_lib" type="text" placeholder="- link/url -" name="f-link" maxlength="512" value="{{LINK}}">
+                    </div>
+                	<div class="sec_row" style="height: 40px; margin-bottom: 8px;">
+                    	<span class="t13 abs" style="left: 120px; top: 0; line-height: 40px;">Nome/Descrição <a class="t10 bold red">*</a></span>
+		                <input id="i_nome" class="iText_lib" type="text" placeholder="- nome / descrição -" name="f-nome" maxlength="255" value="{{NOME}}">
+                    </div>
+                	<div class="sec_row" style="height: 40px; margin-bottom: 8px;">
+                    	<span class="t13 abs" style="left: 120px; top: 0; line-height: 40px;">Estado <a class="t10 bold red">*</a></span>
+		                <select id="i_estado" class="iText_lib" name="f-estado" style="padding: 0 0 0 4px; width: 340px; height: 40px;">
+							<option value="">- selecione -</option>
+							{{ESTADOS}}
+						</select>
+                    </div>
+                	<div class="sec_row" style="height: 180px;">
+                    	<span class="t13 abs" style="left: 120px; top: 0; line-height: 26px;">Observações</span>
+		                <textarea id="i_observacao" class="iText_in" placeholder="- observações -" name="f-observacao" style="position: absolute; left: 300px; top: 0; width: 564px; height: 80px; padding: 2px 4px 2px 4px; resize: none;">{{OBS}}</textarea>
+                    </div>
+                    </form>
+
+					<div class="sec_row" style="height: 100px;">
+						<a id="save_btn" class="btn_save" href="javascript:void(0);" onclick="saveLibrary();" style="left: 300px; top: 10px;">{{SAVE}}</a>
+						<img id="im_loader" src="img/loader.gif" style="display: none; position: absolute; left: 300px; top: 24px; width: 43px; height: 11px;">
+					</div>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">rtext = "{{RTEXT}}";</script>
+</body>
+</html>

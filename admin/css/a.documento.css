@@ -1,0 +1,60 @@
+/**** IDs ****/
+
+/**** CLASSES ****/
+a:link.bar-0, a:visited.bar-0 {
+	display: block;
+	position: relative;
+	width: 1060px;
+	height: 40px;
+	margin: 0 auto;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 40px;
+	padding-left: 50px;
+	background-image: url('../img/arrow-r.png');
+	background-repeat: no-repeat;
+	background-position: 20px 8px;
+	box-sizing: border-box;
+	}
+a:hover.bar-0 {
+	text-decoration: none;
+	}
+
+a:link.bar-0d, a:visited.bar-0d {
+	display: block;
+	position: relative;
+	width: 1060px;
+	height: 40px;
+	margin: 0 auto;
+	color: #ffffff;
+	font-size: 16px;
+	font-weight: bold;
+	text-decoration: none;
+	line-height: 40px;
+	padding-left: 50px;
+	background-image: url('../img/arrow-d.png');
+	background-repeat: no-repeat;
+	background-position: 20px 8px;
+	box-sizing: border-box;
+	}
+a:hover.bar-0d {
+	text-decoration: none;
+	}
+
+.bar-0d span {
+	position: absolute;
+	right: 27px;
+	}
+
+.bar-0 span {
+	position: absolute;
+	right: 27px;
+	}
+
+.bar-bg0 { background-color: #ff0000; }
+.bar-bg3 { background-color: #f77f09; }
+.bar-bg7 { background-color: #f4bd09; }
+.bar-bg15 { background-color: #66ba8a; }
+.bar-bg30 { background-color: #098cdf; }

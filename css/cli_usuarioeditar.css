@@ -1,0 +1,34 @@
+/***  CLASSES  ***/
+a:link.cb0, a:visited.cb0 {
+	position: absolute;
+	height: 17px;
+	background-image: url('../img/cb0.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	line-height: 17px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 22px;
+	font-size: 13px;
+	}
+
+a:link.cb1, a:visited.cb1 {
+	position: absolute;
+	height: 17px;
+	background-image: url('../img/cb1.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	line-height: 17px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 22px;
+	font-size: 13px;
+	}
+
+.ro {
+	border: 1px solid #eeeeee;
+	color: #aaaaaa;
+	}
+

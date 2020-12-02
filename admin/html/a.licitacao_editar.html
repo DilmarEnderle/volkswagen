@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.licitacao_editar.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/jquery.crop.min.css">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.date.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.maskMoney.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.licitacao_editar.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/jquery.crop.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+	<script type="text/javascript">
+		vi = "{{VI}}";
+		uploads = [{{UPLOADS}}];
+	</script>
+</head>
+<body>
+<div class="site-wrap">
+	{{SEC_TOP}}
+
+	<div class="content" style="padding: 14px 20px 2px 20px;">
+		<span class="t18 bold lh-30 fl">{{TITLE}}</span>
+		<a class="bt-cancelar fr" href="{{BACK_TO}}" title="Cancelar">X</a>
+		{{ABRIR}}
+	</div>
+	<div class="content" style="padding: 0 0 60px 0;">
+		<div class="content-inside" style="border: 1px solid #666666;">
+			<form id="licitacao-form">
+				<input type="hidden" id="i-id" name="f-id" value="{{ID}}">
+				<input type="hidden" id="i-back-to-id" value="{{BACK_TO_ID}}">
+
+				<div style="position: relative; height: 40px; margin-top: 20px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Órgão Público<a class="t10 bold red">*</a></span>
+					<input id="i-orgao" class="iText" type="text" placeholder="- órgao público -" name="f-orgao" maxlength="255" value="{{ORGAO}}" style="position: absolute; left: 248px; top: 0; width: 514px;">
+				</div>
+				<div style="position: relative; height: 410px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Objeto da Licitação<a class="t10 bold red">*</a></span>
+					<a class="imgbtn" href="javascript:void(0);" onclick="pasteAreaOn('objeto');" title="Inserir Imagem" style="top: 26px; left: 941px;"></a>
+					<div id="i-objeto" class="iText" style="position: absolute; left: 120px; top: 26px; width: 820px; height: 366px; padding: 4px; resize: none; overflow: auto;" contenteditable="true">{{OBJETO}}</div>
+				</div>
+				<div style="position: relative; height: 410px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Importante</span>
+					<a class="imgbtn" href="javascript:void(0);" onclick="pasteAreaOn('importante');" title="Inserir Imagem" style="top: 26px; left: 941px;"></a>
+					<div id="i-importante" class="iText" style="position: absolute; left: 120px; top: 26px; width: 820px; height: 366px; padding: 4px; resize: none; overflow: auto;" contenteditable="true">{{IMPORTANTE}}</div>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Modalidade <a class="t10 bold red">*</a></span>
+					<select id="i-modalidade" class="iText" name="f-modalidade" style="position: absolute; left: 270px; top: 0; width: 514px; padding-left: 2px;">
+						<option value="0">- modalidade -</option>
+						{{MODALIDADES}}
+					</select>
+					<a class="bt-ins-mod" href="javascript:void(0);" onclick="inserirModalidade(false);">+</a>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Instância <a class="t10 bold red">*</a></span>
+					<select id="i-instancia" class="iText" name="f-instancia" style="position: absolute; left: 270px; top: 0; width: 514px; padding-left: 2px;">
+						<option value="0">- instância -</option>
+						{{INSTANCIAS}}
+					</select>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Estado <a class="t10 bold red">*</a></span>
+					<select id="i-estado" class="iText" name="f-estado" onchange="listarCidades();" style="position: absolute; left: 270px; top: 0; width: 514px; height: 34px; padding-left: 2px;">
+						<option value="">- estado -</option>
+						{{ESTADOS}}
+					</select>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Cidade <a class="t10 bold red">*</a></span>
+					<img id="loader" src="img/spinner.gif" style="position: absolute; left: 270px; top: 7px; display: none;">
+					<select id="i-cidade" class="iText" name="f-cidade" onchange="listarDNs();" style="position: absolute; left: 270px; top: 0; width: 514px; height: 34px; padding-left: 2px;">
+						{{CIDADES}}
+					</select>
+				</div>
+				<div style="position:relative;overflow:hidden;min-height:40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">DN(s) <a class="t10 bold red">*</a></span>
+					<p id="dn" class="dn-holder"><span class="gray-88 italic" style="line-height:24px;">- selecione uma cidade -</span></p>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Valor Estimado (R$)</span>
+					<input id="i-valor" class="iText" type="text" placeholder="R$  0,00" name="f-valor" maxlength="24" value="{{VALOR}}" style="position: absolute; left: 270px; top: 0; width: 200px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Data/Hora de Abertura <a class="t10 bold red">*</a></span>
+					<input id="i-data-abertura" class="iText" type="text" placeholder="dd/mm/aaaa" name="f-data_abertura" maxlength="10" value="{{DATA_ABERTURA}}" style="position: absolute; left: 270px; top: 0; width: 134px;">
+					<input id="i-hora-abertura" class="iText" type="text" placeholder="hh:mm (24h)" name="f-hora_abertura" maxlength="5" value="{{HORA_ABERTURA}}" style="position: absolute; left: 403px; top: 0; width: 120px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Data/Hora de Entrega <a class="t10 bold red">*</a></span>
+					<input id="i-data-entrega" class="iText" type="text" placeholder="dd/mm/aaaa" name="f-data_entrega" maxlength="10" value="{{DATA_ENTREGA}}" style="position: absolute; left: 270px; top: 0; width: 134px;">
+					<input id="i-hora-entrega" class="iText" type="text" placeholder="hh:mm (24h)" name="f-hora_entrega" maxlength="5" value="{{HORA_ENTREGA}}" style="position: absolute; left: 403px; top: 0; width: 120px;">
+					<span class="t12 abs italic red" style="left: 540px; top: 0; line-height: 34px;">Data/Hora Entrega das Propostas</span>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Link do Site</span>
+					<input id="i-link" class="iText" type="text" placeholder="- link do site http://ww... -" name="f-link" maxlength="255" value="{{LINK}}" style="position: absolute; left: 270px; top: 0; width: 514px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Número da Licitação <a class="t10 bold red">*</a></span>
+					<input id="i-numero" class="iText" type="text" placeholder="- número da licitação -" name="f-numero" maxlength="20" value="{{NUMERO}}" style="position: absolute; left: 270px; top: 0; width: 160px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">É SRP ? <a class="t10 bold red">*</a></span>
+					<select id="i-srp" class="iText" name="f-srp" style="position: absolute; left: 270px; top: 0; width: 160px; height: 34px; padding-left: 2px;">
+						<option value=""></option>
+						<option value="1"{{SRP_SIM}}>Sim</option>
+						<option value="2"{{SRP_NAO}}>Não</option>
+					</select>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Participação ME/EPP ?</span>
+					<select id="i-meepp" class="iText" name="f-meepp" style="position: absolute; left: 270px; top: 0; width: 160px; height: 34px; padding-left: 2px;">
+						<option value=""></option>
+						<option value="1"{{MEEPP_SIM}}>Sim</option>
+						<option value="2"{{MEEPP_NAO}}>Não</option>
+					</select>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Prazo de Entrega <a class="t10 bold red">*</a></span>
+					<input id="i-prazo-entrega" class="iText" type="text" placeholder="- em dias -" name="f-prazo_entrega" maxlength="20" value="{{PRAZO_ENTREGA_PRODUTO}}" style="position: absolute; left: 270px; top: 0; width: 90px;">
+					<select id="i-prazo-entrega-uteis" class="iText" name="f-prazo_entrega_uteis" style="position: absolute; left: 351px; top: 0; width: 159px; height: 34px; padding-left: 2px;">
+						<option value=""></option>
+						<option value="1"{{PEP_UTEIS}}>Dias úteis</option>
+						<option value="2"{{PEP_CORRI}}>Dias corridos</option>
+					</select>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Boletim/Fonte</span>
+					<input id="i-fonte" class="iText" type="text" placeholder="- boletim ou fonte da oportunidade -" name="f-fonte" maxlength="255" value="{{FONTE}}" style="position: absolute; left: 270px; top: 0; width: 514px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Código UASG</span>
+					<input id="i-uasg" class="iText" type="text" placeholder="- uasg -" name="f-uasg" maxlength="20" value="{{UASG}}" style="position: absolute; left: 270px; top: 0; width: 200px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Nº de Rastreamento</span>
+					<input id="i-numero-rastreamento" class="iText" type="text" placeholder="- número de rastreamento -" name="f-numero_rastreamento" maxlength="60" value="{{NUMERO_RASTREAMENTO}}" style="position: absolute; left: 270px; top: 0; width: 200px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Validade da Proposta</span>
+					<input id="i-validade-proposta" class="iText" type="text" placeholder="- validade da proposta -" name="f-validade_proposta" maxlength="255" value="{{VALIDADE_PROPOSTA}}" style="position: absolute; left: 270px; top: 0; width: 160px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 120px; top: 0; line-height: 34px;">Vigência do Contrato</span>
+					<input id="i-vigencia-contrato" class="iText" type="text" placeholder="- vigência do contrato -" name="f-vigencia_contrato" value="{{VIGENCIA_CONTRATO}}" style="position: absolute; left: 270px; top: 0; width: 514px;">
+				</div>
+			</form>
+
+			<div style="position:relative;overflow:hidden;">
+				<span class="t13 fl" style="line-height:26px;margin-left:120px;width:150px;">Edital/Editais</span>
+				<div style="position:relative;float:left;width:760px;">
+
+					{{EDITAIS}}
+
+					<div id="upload-box">
+						<a class="bt-style-2" href="javascript:void(0);" onclick="selectFile();" style="float:left;">Adicionar Edital</a>
+						<span class="t11 italic" style="float:left;line-height:30px;margin-left:10px;">Máx. 100 MB</span>
+					</div>
+					<div id="upload-loading">
+						<div></div>
+						<span>Carregando...</span>
+					</div>
+				</div>
+			</div>
+
+			<div id="i-salvar-box" style="position: relative; height: 46px; margin-top: 40px;">
+				<a class="bt-style-1" href="javascript:void(0);" onclick="salvarLicitacao();" style="display: inline-block; position: absolute; left: 270px; top: 0;font-size:13px;height:46px;line-height:44px;">{{BT_TEXTO}}</a>
+			</div>
+			<div id="i-processando-box" style="display: none; position: relative; height: 46px; margin-top: 40px;">
+				<div class="processando">Salvando...</div>
+			</div>
+
+			<div style="position: relative; height: 60px;"><!-- --></div>
+		</div>
+	</div>
+</div>
+
+<div id="dim_dialog_1" onclick="toReceiver();">
+	<div id="paste_box" style="display: none; overflow: hidden;">
+		<div id="receiver" contenteditable="true" style="position: absolute; left: 0; top: -40px; width: 200px; height: 20px; border: none; outline: none; background-color: #f5f5f5; overflow: hidden;"></div>
+        <div style="position: absolute; left: 0; top: 0; width: 400px; height: 30px; background-color: #f5f5f5;"></div>
+        <span class="t20 italic gray_80" style="position: absolute; left: 0; top: 125px; text-align: center; width: 600px;">- cole da área de transferência -<br><a class="t16 gray_4c">CTRL+V</a></span>
+        <span class="t11 italic red" style="position: absolute; left: 20px; bottom: 16px;">pressione [ ESC ] para cancelar</span>
+        <div style="position: absolute; left: 5px; top: 5px; width: 584px; height: 284px; border: 3px dashed #cccccc;"></div>
+    </div>
+    <div id="loader_box">
+    	<img src="img/loader64.gif" style="position: absolute; left: 118px; top: 118px; width: 64px; height: 64px;">
+    </div>
+    <div id="preview_box">
+    	<div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 38px; background-color: #eeeeee; border-top: 2px solid #999999;"></div>
+		<div style="position: absolute; left: 5px; top: 5px;"><img id="preview_img" src=""></div>
+        <a id="ok_btn" class="btn_green26" href="javascript:void(0);" onclick="pasteOk();" style="position: absolute; left: 5px; bottom: 7px;">Inserir</a>
+        <a class="btn_gray26" href="javascript:void(0);" onclick="pasteAreaOff();" style="position: absolute; right: 5px; bottom: 7px;">Cancelar</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.documento_editar.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.date.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.documento_editar.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+	<script type="text/javascript">return_upload = {{RETURN_UPLOAD}};</script>
+</head>
+<body>
+<form id="upload-form" enctype="multipart/form-data"></form>
+<div class="site-wrap">
+	{{SEC_TOP}}
+	<div class="content" style="padding: 14px 20px 2px 20px;">
+		<span class="t18 bold lh-30 fl">{{TITLE}}</span>
+	</div>
+
+	<div class="content" style="padding: 8px 20px 0 20px;">
+		<a class="bt-cancelar fr mt-12" href="a.documento.php" title="Cancelar">X</a>
+		<div style="position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background-color: #999999;"><!-- --></div>
+		<a class="aba1 tb" href="javascript:void(0);">Dados do Documento</a>
+	</div>
+
+	<div class="content" style="padding: 20px 0 60px 0;">
+		<div class="content-inside" style="border: 1px solid #666666; padding: 20px 0;">
+			<form id="documento-form">
+				<input type="hidden" name="f-id" value="{{ID}}">
+				<input type="hidden" name="f-notificar" value="{{NOTIFICAR}}">
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Nome <a class="t10 bold red">*</a></span>
+					<input id="i-nome" class="iText" type="text" placeholder="- nome do documento -" name="f-nome" maxlength="255" value="{{NOME}}" style="position: absolute; left: 300px; top: 0; width: 512px;">
+				</div>
+				<div style="position: relative; height: 92px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Descrição</span>
+					<textarea id="i-descricao" class="iText" placeholder="- descrição do documento (opcional) -" name="f-descricao" style="position: absolute; left: 300px; top: 0; width: 512px; height: 86px; padding: 2px 4px 2px 4px; resize: none; font-family: Arial; box-sizing: border-box;">{{DESC}}</textarea>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Validade</span>
+					<input id="i-data-validade" class="iText" type="text" placeholder="dd/mm/aaaa" name="f-data-validade" maxlength="10" value="{{DATA_VALIDADE}}" style="position: absolute; left: 300px; top: 0; width: 134px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Aviso(s) de Atualização</span>
+					<a id="i-notificar-sim" class="check-dot{{NOTIF_SIM}} cl-notif" href="javascript:void(0);" onclick="ckSingle(this,1,'notif');" style="left: 300px; top: 10px;">Sim</a>
+					<a id="i-notificar-nao" class="check-dot{{NOTIF_NAO}} cl-notif" href="javascript:void(0);" onclick="ckSingle(this,0,'notif');" style="left: 370px; top: 10px;">Não</a>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Numero de Dias</span>
+					<input id="i-prazo-notificacao" class="iText" type="text" placeholder="- número dias - (separe por vírgula para múltiplos avisos Ex: 8,2,0,+3,+5)" name="f-prazo-notificacao" maxlength="100" value="{{PRAZO}}" style="position: absolute; left: 300px; top: 0; width: 512px;">
+				</div>
+			</form>
+
+			<div style="position: relative; height: 40px;">
+				<span class="t13 abs" style="left: 140px; top: 0; line-height: 26px;">Arquivo <a class="t10 bold red">*</a></span>
+				<div id="upl-btn" style="display: {{UPL_BTN}};">
+					<a class="bt-style-2" href="javascript:void(0);" onclick="selectFile();" style="position: absolute; left: 1px; top: 1px;">Selecionar Arquivo</a>
+					<span class="t11 red" style="position: absolute; right: 14px; top: 0; line-height: 32px;">Máx. 100 MB</span>
+				</div>
+				<div id="upl-loading" style="display: {{UPL_LOADING}};">
+					<div id="upl-bar"></div>
+					<span id="upl-per">Carregando...</span>
+				</div>
+				<div id="upl-ready" style="display: {{UPL_READY}};">
+					<img src="img/file.png" style="position: absolute; left: 7px; top: 4px; border: 0;">
+					<span id="upl-filename" class="t13 red italic" style="position: absolute; left: 36px; top: 0; line-height: 32px;">{{DOC_ARQUIVO}}</span>
+					<span id="upl-filesize" class="gray-4c italic t11" style="position: absolute; right: 36px; top: 0; line-height: 32px;">{{DOC_TAMANHO}}</span>
+					<a class="btn-x24" href="javascript:void(0);" onclick="cancelUpload();" style="right: 4px; top: 4px;" title="Cancelar"></a>
+				</div>
+			</div>
+
+			<div id="i-salvar-box" style="position: relative; height: 28px; margin-top: 20px;">
+				<a class="bt-style-1" href="javascript:void(0);" onclick="salvarDocumento();" style="display: inline-block; position: absolute; left: 300px; top: 0;">{{BT_TEXTO}}</a>
+			</div>
+			<div id="i-processando-box" style="display: none; position: relative; height: 28px; margin-top: 20px;">
+				<div class="processando">Salvando...</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.atarp_editar.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.atarp_editar.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+</head>
+<body>
+<form id="upload-form" enctype="multipart/form-data"></form>
+<div class="site-wrap">
+	{{SEC_TOP}}
+	<div class="content" style="padding: 14px 20px 0 20px;">
+		<span class="t18 bold lh-30 fl mt-12">{{TITLE}}</span>
+		<a class="bt-cancelar fr mt-12" href="a.atarp.php" title="Cancelar">X</a>
+	</div>
+
+	<div class="content" style="padding: 2px 0 60px 0;">
+		<div class="content-inside" style="border: 1px solid #666666; padding: 20px 0;">
+			<form id="atarp-form">
+				<input type="hidden" id="i-id" name="f-id" value="{{ID}}">
+
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Modelo<a class="t10 bold red">*</a></span>
+					<input id="i-modelo" class="iText" type="text" placeholder="- modelo -" name="f-modelo" maxlength="100" value="{{MODELO}}" style="position: absolute; left: 300px; top: 0; width: 500px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Órgão <a class="t10 bold red">*</a></span>
+					<input id="i-orgao" class="iText" type="text" placeholder="- órgão -" name="f-orgao" maxlength="300" value="{{ORGAO}}" style="position: absolute; left: 300px; top: 0; width: 500px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Licitação <a class="t10 bold red">*</a></span>
+					<input id="i-licitacao" class="iText" type="text" placeholder="- licitação -" name="f-licitacao" maxlength="40" value="{{LICITACAO}}" style="position: absolute; left: 300px; top: 0; width: 500px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Vigência <a class="t10 bold red">*</a></span>
+					<input id="i-vigencia" class="iText" type="text" placeholder="- vigência -" name="f-vigencia" maxlength="40" value="{{VIGENCIA}}" style="position: absolute; left: 300px; top: 0; width: 500px;">
+				</div>
+				<div style="position: relative; height: 100px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Observações</span>
+					<textarea id="i-obs" class="iText" placeholder="- observações (opcional) -" name="f-obs" style="position: absolute; left: 300px; top: 0; width: 500px; height: 94px; padding: 2px 4px 2px 4px; resize: none; font-family: Arial; box-sizing: border-box;">{{OBS}}</textarea>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Aceita Adesão <a class="t10 bold red">*</a></span>
+					<a id="i-adesao-sim" class="check-dot{{ADESAO_SIM}} cl-adesao" href="javascript:void(0);" onclick="ckSingle(this,'adesao');" style="left: 300px; top: 10px;">Sim</a>
+					<a id="i-adesao-nao" class="check-dot{{ADESAO_NAO}} cl-adesao" href="javascript:void(0);" onclick="ckSingle(this,'adesao');" style="left: 370px; top: 10px;">Não</a>
+				</div>
+				<div style="position: relative; overflow: hidden; padding-bottom: 30px;">
+					<span class="t13" style="float: left; line-height: 34px; margin-left: 140px; width: 160px;">Anexo(s):</span>
+					<div style="position: relative; float: left; width: 638px;">
+						{{ANX}}
+						<div id="upload-holder">
+							<div id="upl-btn">
+								<a class="bt-style-2 fl" href="javascript:void(0);" onclick="selectFile();">Adicionar Anexo</a>
+								<span class="red fl ml-10 lh-30">Máx. 100 MB</span>
+							</div>
+							<div id="upl-load">
+								<div id="upl-bar"></div>
+								<label id="upl-per">Carregando... 34%</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<div id="i-salvar-box" style="position: relative; height: 28px; clear: both;">
+				<a class="bt-style-1" href="javascript:void(0);" onclick="salvarAtarp();" style="display: inline-block; position: absolute; left: 300px; top: 0;">{{BT_TEXTO}}</a>
+			</div>
+			<div id="i-processando-box" style="display: none; position: relative; height: 28px; margin-top: 20px;">
+				<div class="processando">Salvando...</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">uplds = [{{UPLDS}}];</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.feriado_editar.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.feriado_editar.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+</head>
+<body>
+<div class="site-wrap">
+	{{SEC_TOP}}
+	<div class="content" style="padding: 14px 20px 2px 20px;">
+		<span class="t18 bold lh-30 fl">{{TITLE}}</span>
+	</div>
+
+	<div class="content" style="padding: 8px 20px 0 20px;">
+		<a class="bt-cancelar fr mt-12" href="a.feriado.php" title="Cancelar">X</a>
+		<div style="position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background-color: #999999;"><!-- --></div>
+		<a class="aba1 tb" href="javascript:void(0);">Feriado</a>
+	</div>
+
+	<div class="content" style="padding: 20px 0 60px 0;">
+		<div class="content-inside" style="border: 1px solid #666666; padding: 20px 0;">
+			<form id="feriado-form">
+				<input type="hidden" id="i-id" name="f-id" value="{{ID}}">
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Nome/Descrição<a class="t10 bold red">*</a></span>
+					<input id="i-nome" class="iText" type="text" placeholder="- nome ou descrição do feriado -" name="f-nome" maxlength="100" value="{{NOME}}" style="position: absolute; left: 300px; top: 0; width: 500px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Dia <a class="t10 bold red">*</a></span>
+					<select id="i-dia" class="iText" name="f-dia" style="position: absolute; left: 300px; top: 0; width: 500px; height: 34px; padding-left: 2px;">
+						<option value="0">- dia -</option>
+						{{DIAS}}
+					</select>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Mês <a class="t10 bold red">*</a></span>
+					<select id="i-mes" class="iText" name="f-mes" style="position: absolute; left: 300px; top: 0; width: 500px; height: 34px; padding-left: 2px;">
+						<option value="0">- mês -</option>
+						{{MESES}}
+					</select>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Fixo <a class="t10 bold red">*</a></span>
+					<a id="i-fixo-sim" class="check-dot{{FIXO_SIM}} cl-fixo" href="javascript:void(0);" onclick="ckSingle(this,'fixo');" style="left: 300px; top: 10px;">Sim</a>
+					<a id="i-fixo-nao" class="check-dot{{FIXO_NAO}} cl-fixo" href="javascript:void(0);" onclick="ckSingle(this,'fixo');" style="left: 370px; top: 10px;">Não</a>
+					<span class="t11 abs italic red" style="left: 460px; top: 0; line-height: 34px;">Ocorre sempre nesta data todos os anos?</span>
+				</div>
+			</form>
+			<div id="i-salvar-box" style="position: relative; height: 28px; margin-top: 20px;">
+				<a class="bt-style-1" href="javascript:void(0);" onclick="salvarFeriado();" style="display: inline-block; position: absolute; left: 300px; top: 0;">{{BT_TEXTO}}</a>
+			</div>
+			<div id="i-processando-box" style="display: none; position: relative; height: 28px; margin-top: 20px;">
+				<div class="processando">Salvando...</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.usuario_admin_editar.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.usuario_admin_editar.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+</head>
+<body>
+<div class="site-wrap">
+	{{SEC_TOP}}
+	<div class="content" style="padding: 14px 20px 2px 20px;">
+		<span class="t18 bold lh-30 fl">{{TITLE}}</span>
+	</div>
+
+	<div class="content" style="padding: 8px 20px 0 20px;">
+		<a class="bt-cancelar fr mt-12" href="a.usuario_admin.php" title="Cancelar">X</a>
+		<div style="position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background-color: #999999;"><!-- --></div>
+		<a class="aba1 tb" href="javascript:void(0);">Dados do Usuário</a>
+	</div>
+
+	<div class="content" style="padding: 20px 0 60px 0;">
+		<div class="content-inside" style="border: 1px solid #666666; padding: 20px 0;">
+			<form id="usuario-form">
+				<input type="hidden" id="i-id" name="f-id" value="{{ID}}">
+				<input type="hidden" name="f-eml" value="{{EML}}">
+				<input type="hidden" name="f-sms" value="{{SMS}}">
+
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Nome<a class="t10 bold red">*</a></span>
+					<input id="i-nome" class="iText" type="text" placeholder="- nome do usuario -" name="f-nome" maxlength="255" value="{{NOME}}" style="position: absolute; left: 300px; top: 0; width: 500px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Perfil <a class="t10 bold red">*</a></span>
+					<select id="i-perfil" class="iText" name="f-perfil" style="position: absolute; left: 300px; top: 0; width: 500px; height: 34px; padding-left: 2px;">
+						<option value=""></option>
+						{{PERFIS}}
+					</select>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Login <a class="t10 bold red">*</a></span>
+					<input id="i-login" class="iText" type="text" placeholder="- nome do login -" name="f-login" maxlength="100" value="{{LOGIN}}" style="position: absolute; left: 300px; top: 0; width: 500px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Senha <a class="t10 bold red">*</a></span>
+					<input id="i-senha" class="iText" type="text" placeholder="{{SENHA_PH}}" name="f-senha" maxlength="100" value="" style="position: absolute; left: 300px; top: 0; width: 500px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Ativo <a class="t10 bold red">*</a></span>
+					<a id="i-ativo-sim" class="check-dot{{ATIVO_SIM}} cl-ativo" href="javascript:void(0);" onclick="ckSingle(this,1,'ativo');" style="left: 300px; top: 10px;">Sim</a>
+					<a id="i-ativo-nao" class="check-dot{{ATIVO_NAO}} cl-ativo" href="javascript:void(0);" onclick="ckSingle(this,0,'ativo');" style="left: 370px; top: 10px;">Não</a>
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Email <a class="t10 bold red">*</a></span>
+					<input id="i-email" class="iText" type="text" placeholder="- email válido -" name="f-email" maxlength="100" value="{{EMAIL}}" style="position: absolute; left: 300px; top: 0; width: 500px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Celular</span>
+					<input id="i-celular" class="iText" type="text" placeholder="- somente números -" name="f-celular" maxlength="15" value="{{CELULAR}}" style="position: absolute; left: 300px; top: 0; width: 160px;">
+				</div>
+				<div style="position: relative; height: 40px;">
+					<span class="t13 abs" style="left: 140px; top: 0; line-height: 34px;">Notificações <a class="t10 bold red">*</a></span>
+					<a id="i-notif-sim" class="check-dot{{NOTIF_SIM}} cl-notif" href="javascript:void(0);" onclick="ckSingle(this,1,'notif');" style="left: 300px; top: 10px;">Sim</a>
+					<a id="i-notif-nao" class="check-dot{{NOTIF_NAO}} cl-notif" href="javascript:void(0);" onclick="ckSingle(this,0,'notif');" style="left: 370px; top: 10px;">Não</a>
+				</div>
+				<div class="row-100">
+					<span class="t13 fl bold ml-300 lh-24">LICITAÇÕES</span>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Mensagens do DN</span>
+						<a class="t11 check-chk{{EML_A}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','A');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_A}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','A');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Mensagens do Back Office</span>
+						<a class="t11 check-chk{{EML_B}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','B');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_B}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','B');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Sem Interesse do DN</span>
+						<a class="t11 check-chk{{EML_C}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','C');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_C}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','C');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Aviso de APL Enviada</span>
+						<a class="t11 check-chk{{EML_D}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','D');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_D}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','D');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Aviso de APL Aprovada</span>
+						<a class="t11 check-chk{{EML_E}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','E');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_E}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','E');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Aviso de APL Reprovada</span>
+						<a class="t11 check-chk{{EML_F}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','F');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_F}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','F');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Aviso de APL Aprovação Revertida</span>
+						<a class="t11 check-chk{{EML_G}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','G');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_G}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','G');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Aviso de APL Reprovação Revertida</span>
+						<a class="t11 check-chk{{EML_H}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','H');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_H}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','H');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Licitação Prorrogada</span>
+						<a class="t11 check-chk{{EML_I}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','I');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_I}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','I');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Mensagens do Pregoeiro Chama</span>
+						<a class="t11 check-chk{{EML_Q}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','Q');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_Q}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','Q');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100 mt-20">
+					<span class="t13 fl bold ml-300 lh-24">COMPRA DIRETA/SRP</span>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Novas Solicitações</span>
+						<a class="t11 check-chk{{EML_J}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','J');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_J}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','J');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Mensagens do DN</span>
+						<a class="t11 check-chk{{EML_K}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','K');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_K}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','K');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Mensagens do Back Office</span>
+						<a class="t11 check-chk{{EML_R}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','R');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_R}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','R');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Aviso de APL Enviada</span>
+						<a class="t11 check-chk{{EML_L}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','L');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_L}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','L');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Aviso de APL Aprovada</span>
+						<a class="t11 check-chk{{EML_M}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','M');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_M}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','M');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Aviso de APL Reprovada</span>
+						<a class="t11 check-chk{{EML_N}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','N');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_N}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','N');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Aviso de APL Aprovação Revertida</span>
+						<a class="t11 check-chk{{EML_O}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','O');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_O}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','O');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+				<div class="row-100">
+					<div style="display:inline-block; float: left; border-bottom: 1px dotted #d0d0d0; margin-left:340px;">
+						<span class="t13 fl lh-21 w-300 italic">Aviso de APL Reprovação Revertida</span>
+						<a class="t11 check-chk{{EML_P}} fl mt-3" href="javascript:void(0);" onclick="ckSelf(this,'eml','P');" style="position:relative;">Email</a>
+						<a class="t11 check-chk{{SMS_P}} fl mt-3 ml-36" href="javascript:void(0);" onclick="ckSelf(this,'sms','P');" style="position:relative;">Celular via SMS</a>
+					</div>
+				</div>
+
+			</form>
+			<div id="i-salvar-box" style="position: relative; height: 30px; margin-top: 20px;">
+				<a class="bt-style-1" href="javascript:void(0);" onclick="salvarUsuario();" style="display: inline-block; position: absolute; left: 300px; top: 0;">{{BT_TEXTO}}</a>
+			</div>
+			<div id="i-processando-box" style="display: none; position: relative; height: 30px; margin-top: 20px;">
+				<div class="processando">Salvando...</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

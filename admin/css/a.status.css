@@ -1,0 +1,15 @@
+/**** IDs ****/
+
+
+/**** CLASSES ****/
+a:link.alnk-status, a:visited.alnk-status { text-decoration: none; }
+a:hover.alnk-status, a:active.alnk-status { text-decoration: none; }
+
+a:link.alnk-status-inside {
+	text-decoration: none;
+	padding: 0 8px;
+	border-radius: 3px;
+	line-height: 25px;
+	}
+
+

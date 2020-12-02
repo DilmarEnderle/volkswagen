@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.cidade.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.cidade.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+
+	<script type="text/javascript">uf='{{UF}}';</script>
+</head>
+<body>
+<div class="site-wrap">
+	{{SEC_TOP}}
+
+	<div class="content" style="padding: 14px 20px 10px 20px;">
+		<span class="t18 bold lh-30 fl">Selecione o Estado:</span>
+		<select id="i-estado" class="iText fl" onchange="listarCidades();" style="width: 514px; height: 30px; padding-left: 2px; margin-left: 14px; background-color:#f5f5f5;">
+			<option value="AC">Acre</option>
+			<option value="AL">Alagoas</option>
+			<option value="AP">Amapá</option>
+			<option value="AM">Amazonas</option>
+			<option value="BA">Bahia</option>
+			<option value="CE">Ceará</option>
+			<option value="DF">Distrito Federal</option>
+			<option value="ES">Espírito Santo</option>
+			<option value="GO">Goiás</option>
+			<option value="MA">Maranhão</option>
+			<option value="MT">Mato Grosso</option>
+			<option value="MS">Mato Grosso do Sul</option>
+			<option value="MG">Minas Gerais</option>
+			<option value="PA">Pará</option>
+			<option value="PB">Paraíba</option>
+			<option value="PR">Paraná</option>
+			<option value="PE">Pernambuco</option>
+			<option value="PI">Piauí</option>
+			<option value="RJ">Rio de Janeiro</option>
+			<option value="RN">Rio Grande do Norte</option>
+			<option value="RS">Rio Grande do Sul</option>
+			<option value="RO">Rondônia</option>
+			<option value="RR">Roraima</option>
+			<option value="SC">Santa Catarina</option>
+			<option value="SP">São Paulo</option>
+			<option value="SE">Sergipe</option>
+			<option value="TO">Tocantins</option>
+		</select>
+		<a class="fr bt-style-1" href="a.cidade_editar.php">+ Inserir nova cidade</a>
+	</div>
+
+	<div class="content dh">
+		<div class="content-inside" style="height: 30px; background-color: #cccccc;">
+			<span class="t14 abs bold lh-30 lf-10">Cidade</span>
+			<span class="t14 abs bold lh-30 lf-800">ADVE</span>
+		</div>
+	</div>
+
+	<div id="i-cidades" class="content pb-60">
+		<div class="content-inside italic lh-30 t14 gray-88" style="height: 30px;">Carregando...</div>
+	</div>
+</div>
+</body>
+</html>

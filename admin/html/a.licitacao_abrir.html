@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.licitacao_abrir.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.inputmask.min.date.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/jquery.maskMoney.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="../../TinyMCE-4.3.7/tinymce.min.js?{{VERSION}}"></script>
+   	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.licitacao_abrir.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/autosize/autosize.min.js?{{VERSION}}"></script>
+	<script type="text/javascript">filtro_dn={{FILTRO_DN}};filtro_status={{FILTRO_STATUS}};filtro_estados={{FILTRO_ESTADOS}};filtro_cidades={{FILTRO_CIDADES}};filtro_regioes={{FILTRO_REGIOES}};filtro_ultimas={{FILTRO_ULTIMAS}};</script>
+</head>
+<body>
+<form id="upload-form" enctype="multipart/form-data"></form>
+<input type="hidden" id="id-licitacao" value="{{ID}}">
+<form id="cell-form">
+	<input type="hidden" id="cell-lote" name="id-lote" value="0">
+	<input type="hidden" id="cell-item" name="id-item" value="0">
+	<input type="hidden" id="cell-campo" name="campo" value="">
+	<input type="hidden" id="cell-val" name="val" value="">
+	<input type="hidden" id="cell-cur-val" value="">
+</form>
+<div class="site-wrap">
+	{{SEC_TOP}}
+	<div class="content" style="padding: 14px 20px 6px 20px;">
+		<a class="bt-style-2 fl" href="a.licitacao.php" style="height:34px;line-height:32px;">&lt; Licitações</a>
+		<a class="bt-style-1 fr" href="a.licitacao_editar.php?id={{ID}}&fr=1" style="height:34px;line-height:32px;">Editar</a>
+		<a class="bt-style-3 fr mr-8" href="javascript:void(0);" onclick="removerLicitacao(false);" style="height:34px;line-height:32px;">Excluir</a>
+
+		<div id="search-options">
+			<a class="search-mais drp fr" href="javascript:void(0);" onclick="maisFiltros(this);" style="margin-right:40px;"></a>
+			<a class="search fr mr-8" href="javascript:void(0);" onclick="buscar();"></a>
+			<input id="i-search" class="iText fr" type="text" placeholder="- buscar -" name="f-search" maxlength="60" value="{{SRCH_ID}}" style="width: 180px;">
+		</div>
+		<span id="search-processing" style="display:none;float:right;margin-right:40px;font-style:italic;line-height:34px;font-weight:bold;">Procurando...</span>
+	</div>
+	{{OUTPUT}}
+	<div class="content pb-100"></div>
+</div>
+
+
+<div id="mais-filtros" class="drp hdf">
+	<div class="t15 bold lh-24 hdf" style="overflow:hidden;">Filtros de Busca</div>
+	<div style="overflow:hidden;" class="hdf">
+		<a id="filtro-5" class="filtro0 fl drp" href="javascript:void(0);" onclick="buscaFiltro(5);">- dn -<img src="img/a-down-g.png"></a>
+		<a id="filtro-0" class="filtro0 fl ml-14 drp" href="javascript:void(0);" onclick="buscaFiltro(0);">- status -<img src="img/a-down-g.png"></a>
+		<a id="filtro-1" class="filtro0 fl ml-14 drp" href="javascript:void(0);" onclick="buscaFiltro(1);">- estado -<img src="img/a-down-g.png"></a>
+	</div>
+	<div class="hdf drp" style="position: relative; height:22px;">
+		<a id="limpa-5" class="drop-limpa drp" href="javascript:void(0);" onclick="limpaFiltro(5);" style="display:none;left:0;">limpar<img src="img/x.png"></a>
+		<a id="limpa-0" class="drop-limpa drp" href="javascript:void(0);" onclick="limpaFiltro(0);" style="display:none;left:144px;">limpar<img src="img/x.png"></a>
+		<a id="limpa-1" class="drop-limpa drp" href="javascript:void(0);" onclick="limpaFiltro(1);" style="display:none;left:288px;">limpar<img src="img/x.png"></a>
+	</div>
+	<div style="overflow:hidden;margin-top:20px;" class="hdf">
+		<a id="filtro-2" class="filtro0 fl drp" href="javascript:void(0);" onclick="buscaFiltro(2);">- cidade -<img src="img/a-down-g.png"></a>
+		<a id="filtro-3" class="filtro0 fl ml-14 drp" href="javascript:void(0);" onclick="buscaFiltro(3);">- região -<img src="img/a-down-g.png"></a>
+		<a id="filtro-4" class="filtro0 fl ml-14 drp" href="javascript:void(0);" onclick="buscaFiltro(4);">- últimas -<img src="img/a-down-g.png"></a>
+	</div>
+	<div class="hdf drp" style="position: relative; height:22px;">
+		<a id="limpa-2" class="drop-limpa drp" href="javascript:void(0);" onclick="limpaFiltro(2);" style="display:none;left:0;">limpar<img src="img/x.png"></a>
+		<a id="limpa-3" class="drop-limpa drp" href="javascript:void(0);" onclick="limpaFiltro(3);" style="display:none;left:144px;">limpar<img src="img/x.png"></a>
+		<a id="limpa-4" class="drop-limpa drp" href="javascript:void(0);" onclick="limpaFiltro(4);" style="display:none;left:288px;">limpar<img src="img/x.png"></a>
+	</div>
+	<div class="hdf drp" style="position:relative; overflow:hidden; margin-top:20px;">
+		<span class="fl lh-21">Órgão Público</span>
+		<input id="filtro-op" type="text" class="iText fl clear" placeholder="- órgão público -" style="width:418px;height:30px;color:#{{FILTRO_OP_COLOR}};border:1px solid #{{FILTRO_OP_BORDER}};border-radius:2px;font-size:12px;" value="{{FILTRO_OP}}">
+	</div>
+	<div class="hdf drp" style="position:relative; overflow:hidden; margin-top:10px;">
+		<span class="fl lh-21 clear" style="width:154px;">ADVE</span>
+		<span class="fl lh-21">Nº da Licitação</span>
+		<input id="filtro-adve" type="text" class="iText fl clear" placeholder="- adve -" style="width:140px;height:30px;color:#{{FILTRO_ADVE_COLOR}};border:1px solid #{{FILTRO_ADVE_BORDER}};border-radius:2px;font-size:12px;" value="{{FILTRO_ADVE}}">
+		<input id="filtro-numero" type="text" class="iText fl" placeholder="- nº da licitação -" style="margin-left:14px;width:264px;height:30px;color:#{{FILTRO_NUMERO_COLOR}};border:1px solid #{{FILTRO_NUMERO_BORDER}};border-radius:2px;font-size:12px;" value="{{FILTRO_NUMERO}}">
+	</div>
+	<div class="hdf drp" style="position:relative; overflow:hidden; margin-top:10px;">
+		<span class="fl lh-21 clear" style="width:216px;">Data de Abertura (de)</span>
+		<span class="fl lh-21">Data de Abertura (até)</span>
+		<input id="filtro-data-de" type="text" class="iText fl clear" placeholder="- dd/mm/aaaa -" style="width:202px;height:30px;color:#{{FILTRO_DATA_DE_COLOR}};border:1px solid #{{FILTRO_DATA_DE_BORDER}};border-radius:2px;font-size:12px;" value="{{FILTRO_DATA_DE}}">
+		<input id="filtro-data-ate" type="text" class="iText fl" placeholder="- dd/mm/aaaa -" style="margin-left:14px; width:202px;height:30px;color:#{{FILTRO_DATA_ATE_COLOR}};border:1px solid #{{FILTRO_DATA_ATE_BORDER}};border-radius:2px;font-size:12px;" value="{{FILTRO_DATA_ATE}}">
+	</div>
+
+	<div class="hdf drp" style="position:relative;margin-top:26px;">
+		<a class="bt-style-1 fl hdf" href="javascript:void(0);" onclick="buscarF();">Buscar</a>
+		<span id="filtro-erro" class="fl ml-20 hdf" style="display: none; margin-top: 5px; border-radius: 2px; background-color: #ff0000; color: #ffffff; line-height: 20px; padding: 0 10px;">Erro: Selecione pelo menos 1 filtro.</span>
+	</div>
+	<span><a class="filtros-x" href="javascript:void(0);"></a></span>
+</div>
+
+<div id="drop-filtro" class="drp"></div>
+</body>
+</html>

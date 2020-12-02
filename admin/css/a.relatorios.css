@@ -1,0 +1,217 @@
+/*** HTML SELECTORS ***/
+
+/*** UNIQUE IDS ***/
+#drop-box {
+	display: none;
+	position: absolute;
+	left: 100px;
+	top: 100px;
+	border: 1px solid #aeaeae;
+	background-color: #ffffff;
+	overflow: auto;
+	max-height: 280px;
+	}
+
+/*** CLASSES ***/
+a:link.icon32, a:visited.icon32 {
+	display: block;
+	width: 32px;
+	height: 32px;
+	background-color: #e0e0e0;
+	}
+a:hover.icon32 {
+	background-color: #b0b0b0;
+	}
+
+a:link.icon32-on, a:visited.icon32-on, a:hover.icon32-on {
+	display: block;
+	width: 32px;
+	height: 32px;
+	background-color: #3d4042;
+	}
+
+.icon32 img { padding: 6px; border: 0; }
+.icon32-on img { padding: 6px; border: 0; }
+
+a:link.check0, a:visited.check0 {
+	height: 15px;
+	background-image: url('../img/check00.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 15px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 20px; 	
+	}
+a:hover.check0 {
+	background-image: url('../img/check01.png');
+	}
+
+a:link.check1, a:visited.check1 {
+	height: 15px;
+	background-image: url('../img/check10.png');
+	background-position: left top;
+	background-repeat: no-repeat;
+	color: #000000;
+	font-family: Arial;
+	font-size: 12px;
+	line-height: 15px;
+	text-align: left;
+	text-decoration: none;
+	padding-left: 20px; 	
+	}
+a:hover.check1 {
+	background-image: url('../img/check11.png');
+	}
+
+.rel-box {
+	width: 520px;
+	border: 2px solid #999999;
+	}
+
+.rel-box-title {
+	margin-top: -35px;
+	margin-left: 0;
+	line-height: 30px;
+	padding: 0 14px;
+	float: left;
+	display: inline-block;
+	background-color: #ffffff;
+	}
+
+.rel-btn-xlsx {
+	display: inline-block;
+	border: 1px solid #d4ffdc;
+	padding: 0 20px 0 70px;
+	text-align: center;
+	line-height: 70px;
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: bold;
+	color: #666666;
+	background-image: url('../img/xlsx.png');
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	}
+
+.rel-btn-xlsx:hover {
+	background-color: #d4ffdc;
+	}
+
+.rel-btn-pdf {
+	display: inline-block;
+	border: 1px solid #ffdcdb;
+	padding: 0 20px 0 70px;
+	text-align: center;
+	line-height: 70px;
+	text-decoration: none;
+	font-size: 15px;
+	font-weight: bold;
+	color: #666666;
+	background-image: url('../img/pdf.png');
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	}
+
+.rel-btn-pdf:hover {
+	background-color: #ffdcdb;
+	}
+
+a:link.itm-cb0, a:visited.itm-cb0 {
+	position: relative;
+	display: inline-block;
+	line-height: 23px;
+	background-image: url('../img/mch00.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	float: left;
+	padding-left: 22px;
+	font-size: 13px;
+	color: #242424;
+	text-decoration: none;
+	}
+a:hover.itm-cb0, a:active.itm-cb0 {
+	background-image: url('../img/mch01.png');
+	text-decoration: none;
+	}
+
+a:link.itm-cb1, a:visited.itm-cb1 {
+	position: relative;
+	display: inline-block;
+	line-height: 23px;
+	background-image: url('../img/mch10.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+	float: left;
+	padding-left: 22px;
+	font-size: 13px;
+	color: #000000;
+	text-decoration: none;
+	}
+a:hover.itm-cb1, a:active.itm-cb1 {
+	background-image: url('../img/mch11.png');
+	text-decoration: none;
+	}
+
+a:link.filtro1, a:visited.filtro1 {
+	position: relative;
+	display: inline-block;
+	height: 34px;
+	width: 200px;
+	line-height: 32px;
+	color: #282828;
+	text-align: left;
+	font-size: 13px;
+	padding: 0 0 0 10px;
+	text-decoration: none;
+	border: 1px solid #aeaeae;
+	box-sizing: border-box;
+	}
+a:hover.filtro1, a:active.filtro1 {
+	text-decoration: none;
+	}
+
+.filtro1 img {
+	position: absolute;
+	right: 10px;
+	top: 13px;
+	border: 0;
+	width: 8px;
+	height: 6px;
+	}
+
+a:link.drop-item0, a:visited.drop-item0 {
+	display: block;
+	position: relative;
+	height: 26px;
+	padding: 0 15px 0 36px;
+	line-height: 26px;
+	font-size: 13px;
+	color: #000000;
+	text-decoration: none;
+	background-image: url('../img/check0.png');
+	background-repeat: no-repeat;
+	background-position: 12px 5px;
+	}
+a:hover.drop-item0 {
+	text-decoration: none;
+	background-color: #eeeeee;
+	}
+	
+a:link.drop-item1, a:visited.drop-item1, a:hover.drop-item1 {
+	display: block;
+	position: relative;
+	height: 26px;
+	padding: 0 15px 0 36px;
+	line-height: 26px;
+	font-size: 13px;
+	color: #000000;
+	text-decoration: none;
+	background-color: #ffe17a;
+	background-image: url('../img/check1.png');
+	background-repeat: no-repeat;
+	background-position: 12px 5px;
+	}

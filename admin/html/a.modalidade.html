@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.modalidade.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.modalidade.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+</head>
+<body>
+<div class="site-wrap">
+	{{SEC_TOP}}
+	<div class="content" style="padding: 14px 20px 2px 20px; border-bottom: 1px solid #666666;">
+		<span class="t18 bold lh-30 fl">Modalidades (<a class="red">{{TOTAL}}</a>)</span>
+		<a class="bt-style-1 fr" href="a.modalidade_editar.php">+ Adicionar Modalidade</a>
+	</div>
+
+	<div class="content">
+		<div class="content-inside" style="height: 30px; background-color: #cccccc;">
+			<span class="t14 abs bold lh-30 lf-10">Nome</span>
+			<span class="t14 abs bold lh-30 lf-500">Abreviação</span>
+		</div>
+	</div>
+
+	<div class="content pb-60">
+		{{ROWS}}
+	</div>
+</div>
+</body>
+</html>

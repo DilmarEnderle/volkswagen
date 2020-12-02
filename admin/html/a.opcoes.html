@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="utf-8">
+	<title>GELIC - Acesso Administrativo</title>
+	<!-- styles -->
+	<link rel="stylesheet" type="text/css" href="css/a.global.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.opcoes.css?{{VERSION}}">
+	<link rel="stylesheet" type="text/css" href="css/a.ultimate.css?{{VERSION}}">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+
+	<!-- scripts -->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.global.js?{{VERSION}}"></script>
+    <script type="text/javascript" src="js/a.opcoes.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.ultimate.js?{{VERSION}}"></script>
+	<script type="text/javascript" src="js/a.online.js?{{VERSION}}"></script>
+</head>
+<body>
+<div id="site_wrap">
+	<div id="site_content">
+		{{SEC_TOP}}
+		<div class="row_wide_content" style="height: 46px;">
+			<span class="t18 dark_gray bold" style="position: absolute; left: 22px; bottom: 5px;">Configurações do Sistema</span>
+			<div style="position: absolute; left: 22px; bottom: 1px; width: 1056px; height: 1px; background-color: #b08706;"><!-- --></div>
+		</div>
+		<div class="row_wide_content" style="height: 20px;"><!-- gap --></div>
+		<div class="row_wide_content" style="overflow: hidden;">
+			<div class="left-side">
+				<a id="opcao-1" href="javascript:void(0);" onclick="showSec(this,'config-perfil'); reloadPerfis();" class="menu-item0 mm">Perfis de Usuários<img src="img/forward.png"></a>
+				<a id="opcao-2" href="javascript:void(0);" onclick="showSec(this,'config-relatorios'); editarRelatoriosBO();" class="menu-item0 mm">Relatórios BO<img src="img/forward.png"></a>
+				<a id="opcao-3" href="javascript:void(0);" onclick="showSec(this,'config-texto');" class="menu-item0 mm">Termos/Textos Padrão<img src="img/forward.png"></a>
+			</div>
+
+
+
+			<div class="conf-right-cnf-holder" id="config-perfil" style="display: none;">
+				<div class="title-box">
+					<span class="t18 bold fl">Perfis de Usuários</span>
+					<a class="bt-style-1 fr mb-4" href="javascript:void(0);" onclick="adicionarPerfil();">+ Novo Perfil</a>
+				</div>
+				<div id="perfil-container" class="content-box"></div>
+			</div>
+
+
+			<div class="conf-right-cnf-holder" id="config-relatorios" style="display: none;">
+				<div class="title-box">
+					<span class="t18 bold fl">Relatórios disponíveis para o BO</span>
+				</div>
+				<div id="relatorios-container" class="content-box mb-60">
+
+					<form id="relatorios-form">
+						<input type="hidden" name="f-bo_rel_1_1" value="0">
+						<input type="hidden" name="f-bo_rel_1_2" value="0">
+						<input type="hidden" name="f-bo_rel_1_3" value="0">
+						<input type="hidden" name="f-bo_rel_1_4" value="0">
+						<input type="hidden" name="f-bo_rel_2_1" value="0">
+						<input type="hidden" name="f-bo_rel_2_2" value="0">
+						<input type="hidden" name="f-bo_rel_2_3" value="0">
+						<input type="hidden" name="f-bo_rel_2_4" value="0">
+						<input type="hidden" name="f-bo_rel_3_1" value="0">
+						<input type="hidden" name="f-bo_rel_4_1" value="0">
+						<input type="hidden" name="f-bo_rel_4_2" value="0">
+						<input type="hidden" name="f-bo_rel_4_3" value="0">
+						<input type="hidden" name="f-bo_rel_4_4" value="0">
+						<input type="hidden" name="f-bo_rel_5_1" value="0">
+						<input type="hidden" name="f-bo_rel_6_1" value="0">
+						<input type="hidden" name="f-bo_rel_6_2" value="0">
+						<input type="hidden" name="f-bo_rel_6_3" value="0">
+					</form>
+
+					<div class="full-row sub-section">Marque os relatórios que o BO deve ter acesso.</div>
+					<div class="full-row" style="padding:6px 18px;font-weight:bold;font-size:12px;">ADESÃO</div>
+					<div class="full-row"><a id="i-bo_rel_1_1" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_1_1');">Total de DNs</a></div>
+					<div class="full-row"><a id="i-bo_rel_1_2" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_1_2');">Quantos já acessaram</a></div>
+					<div class="full-row"><a id="i-bo_rel_1_3" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_1_3');">Novos acessos</a></div>
+					<div class="full-row"><a id="i-bo_rel_1_4" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_1_4');">Por mês e acumulado do ano</a></div>
+					<div class="full-row" style="padding:6px 18px;font-weight:bold;font-size:12px;">VOLUME DE ACESSOS</div>
+					<div class="full-row"><a id="i-bo_rel_2_1" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_2_1');">Quantidade de acessos por mês</a></div>
+					<div class="full-row"><a id="i-bo_rel_2_2" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_2_2');">Quantidade de acessos por ano</a></div>
+					<div class="full-row"><a id="i-bo_rel_2_3" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_2_3');">Volume de acessos por DN</a></div>
+					<div class="full-row"><a id="i-bo_rel_2_4" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_2_4');">Volume de acessos por Região</a></div>
+					<div class="full-row" style="padding:6px 18px;font-weight:bold;font-size:12px;">APLs</div>
+					<div class="full-row"><a id="i-bo_rel_3_1" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_3_1');">APLs enviadas por mês</a></div>
+					<div class="full-row" style="padding:6px 18px;font-weight:bold;font-size:12px;">LICITAÇÕES</div>
+					<div class="full-row"><a id="i-bo_rel_4_1" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_4_1');">Quantitativo total de processos Estaduais, Federais e Municipais</a></div>
+					<div class="full-row"><a id="i-bo_rel_4_2" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_4_2');">Quantitativo de licitações recusadas pela GELIC e pela Fábrica</a></div>
+					<div class="full-row"><a id="i-bo_rel_4_3" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_4_3');">Quantitativo de licitações em andamento, derrota, vitória e sem envio de APL</a></div>
+					<div class="full-row"><a id="i-bo_rel_4_4" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_4_4');">Licitações e Veículos - Totais</a></div>
+					<div class="full-row" style="padding:6px 18px;font-weight:bold;font-size:12px;">STATUS</div>
+					<div class="full-row"><a id="i-bo_rel_5_1" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_5_1');">Relatório por status (licitações e veículos)</a></div>
+					<div class="full-row" style="padding:6px 18px;font-weight:bold;font-size:12px;">DNs</div>
+					<div class="full-row"><a id="i-bo_rel_6_1" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_6_1');">Lista de licitações por DN</a></div>
+					<div class="full-row"><a id="i-bo_rel_6_2" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_6_2');">Lista de licitações por status</a></div>
+					<div class="full-row"><a id="i-bo_rel_6_3" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bo_rel_6_3');">Lista de licitações por prazo</a></div>
+
+					<div class="full-row mt-20" id="b-bo-salvar"><a class="bt-style-1 fl" href="javascript:void(0);" onclick="salvarRelatoriosBO();">Salvar</a></div>
+					<div class="full-row mt-20" id="bo-processando">Salvando...</div>
+				</div>
+			</div>
+
+
+
+			<div class="conf-right-cnf-holder" id="config-perfil-editar" style="display: none;">
+				<div class="title-box">
+					<span id="perfil-title" class="t18 bold fl">Novo Perfil</span>
+					<a class="bt-style-3 fr mb-4" href="javascript:void(0);" onclick="cancelarPerfil();" title="Cancelar">X</a>
+				</div>
+				<div class="content-box mb-60">
+					<form id="perfil-form">
+						<input type="hidden" name="f-id" value="0">
+
+						<input type="hidden" name="f-lic_visualizar" value="0">
+						<input type="hidden" name="f-lic_inserir" value="0">
+						<input type="hidden" name="f-lic_editar" value="0">
+						<input type="hidden" name="f-lic_excluir" value="0">
+						<input type="hidden" name="f-lic_encerrar" value="0">
+						<input type="hidden" name="f-lic_reverter_encerramento" value="0">
+						<input type="hidden" name="f-lic_prorrogar" value="0">
+						<input type="hidden" name="f-lic_reverter_desinteresse" value="0">
+						<input type="hidden" name="f-lic_status" value="0">
+						<input type="hidden" name="f-lic_mensagem" value="0">
+						<input type="hidden" name="f-lic_check" value="0">
+
+						<input type="hidden" name="f-cli_visualizar" value="0">
+						<input type="hidden" name="f-cli_inserir" value="0">
+						<input type="hidden" name="f-cli_editar" value="0">
+						<input type="hidden" name="f-cli_excluir" value="0">
+						<input type="hidden" name="f-cli_acessar_ambiente" value="0">
+						<input type="hidden" name="f-cli_enviar_senha" value="0">
+
+						<input type="hidden" name="f-his_visualizar" value="0">
+						<input type="hidden" name="f-his_inserir" value="0">
+
+						<input type="hidden" name="f-doc_visualizar" value="0">
+						<input type="hidden" name="f-doc_inserir" value="0">
+						<input type="hidden" name="f-doc_editar" value="0">
+						<input type="hidden" name="f-doc_excluir" value="0">
+
+						<input type="hidden" name="f-usr_visualizar" value="0">
+						<input type="hidden" name="f-usr_inserir" value="0">
+						<input type="hidden" name="f-usr_editar" value="0">
+						<input type="hidden" name="f-usr_excluir" value="0">
+
+						<input type="hidden" name="f-usr_info_visualizar" value="0">
+						<input type="hidden" name="f-usr_info_editar" value="0">
+
+						<input type="hidden" name="f-fer_visualizar" value="0">
+						<input type="hidden" name="f-fer_inserir" value="0">
+						<input type="hidden" name="f-fer_editar" value="0">
+						<input type="hidden" name="f-fer_excluir" value="0">
+
+						<input type="hidden" name="f-mod_visualizar" value="0">
+						<input type="hidden" name="f-mod_inserir" value="0">
+						<input type="hidden" name="f-mod_editar" value="0">
+						<input type="hidden" name="f-mod_excluir" value="0">
+
+						<input type="hidden" name="f-cid_visualizar" value="0">
+						<input type="hidden" name="f-cid_inserir" value="0">
+						<input type="hidden" name="f-cid_editar" value="0">
+						<input type="hidden" name="f-cid_excluir" value="0">
+
+						<input type="hidden" name="f-mot_visualizar" value="0">
+						<input type="hidden" name="f-mot_inserir" value="0">
+						<input type="hidden" name="f-mot_editar" value="0">
+						<input type="hidden" name="f-mot_excluir" value="0">
+
+						<input type="hidden" name="f-sta_visualizar" value="0">
+						<input type="hidden" name="f-sta_inserir" value="0">
+						<input type="hidden" name="f-sta_editar" value="0">
+						<input type="hidden" name="f-sta_excluir" value="0">
+
+						<input type="hidden" name="f-cd_visualizar" value="0">
+						<input type="hidden" name="f-cd_autorizar" value="0">
+						<input type="hidden" name="f-cd_mensagem" value="0">
+
+						<input type="hidden" name="f-atarp_visualizar" value="0">
+						<input type="hidden" name="f-atarp_inserir" value="0">
+						<input type="hidden" name="f-atarp_editar" value="0">
+						<input type="hidden" name="f-atarp_excluir" value="0">
+
+						<input type="hidden" name="f-rel_1_1" value="0">
+						<input type="hidden" name="f-rel_1_2" value="0">
+						<input type="hidden" name="f-rel_1_3" value="0">
+						<input type="hidden" name="f-rel_1_4" value="0">
+						<input type="hidden" name="f-rel_2_1" value="0">
+						<input type="hidden" name="f-rel_2_2" value="0">
+						<input type="hidden" name="f-rel_2_3" value="0">
+						<input type="hidden" name="f-rel_2_4" value="0">
+						<input type="hidden" name="f-rel_3_1" value="0">
+						<input type="hidden" name="f-rel_4_1" value="0">
+						<input type="hidden" name="f-rel_4_2" value="0">
+						<input type="hidden" name="f-rel_4_3" value="0">
+						<input type="hidden" name="f-rel_4_4" value="0">
+						<input type="hidden" name="f-rel_4_5" value="0">
+						<input type="hidden" name="f-rel_5_1" value="0">
+						<input type="hidden" name="f-rel_6_1" value="0">
+						<input type="hidden" name="f-rel_6_2" value="0">
+						<input type="hidden" name="f-rel_6_3" value="0">
+
+						<input type="hidden" name="f-bib_visualizar" value="0">
+						<input type="hidden" name="f-bib_inserir" value="0">
+						<input type="hidden" name="f-bib_editar" value="0">
+						<input type="hidden" name="f-bib_excluir" value="0">
+
+						<input type="hidden" name="f-msg_visualizar" value="0">
+						<input type="hidden" name="f-msg_reenviar" value="0">
+						<input type="hidden" name="f-msg_excluir" value="0">
+
+						<input type="hidden" name="f-cnf_visualizar" value="0">
+						<input type="hidden" name="f-cnf_editar" value="0">
+
+						<div class="full-row">
+							<span class="fl lh-34 t13">Nome do Perfil <a class="t10 bold red">*</a></span>
+							<input id="i-perfil-nome" class="iText fl" type="text" placeholder="- nome deste perfil -" name="f-perfil-nome" maxlength="50" style="margin-left:10px;width:460px;">
+						</div>
+						<div class="full-row mt-20">
+							<span class="t14 bold fl italic">Acessos</span>
+						</div>
+
+						<div id="acessos">
+							<div class="full-row sub-section">LICITAÇÕES</div>
+							<div class="full-row"><a id="i-lic_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'lic_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-lic_inserir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'lic_inserir');">Inserir</a></div>
+							<div class="full-row"><a id="i-lic_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'lic_editar');">Editar</a></div>
+							<div class="full-row"><a id="i-lic_excluir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'lic_excluir');">Excluir</a></div>
+							<div class="full-row"><a id="i-lic_encerrar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'lic_encerrar');">Encerrar</a></div>
+							<div class="full-row"><a id="i-lic_reverter_encerramento" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'lic_reverter_encerramento');">Reverter Encerramento</a></div>
+							<div class="full-row"><a id="i-lic_prorrogar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'lic_prorrogar');">Prorrogar</a></div>
+							<div class="full-row"><a id="i-lic_reverter_desinteresse" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'lic_reverter_desinteresse');">Reverter Desinteresse</a></div>
+							<div class="full-row"><a id="i-lic_status" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'lic_status');">Alterar Status</a></div>
+							<div class="full-row"><a id="i-lic_mensagem" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'lic_mensagem');">Enviar Mensagens</a></div>
+							<div class="full-row"><a id="i-lic_check" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'lic_check');">Edições Adicionais</a><span style="margin-left:20px;color:#999999;font-style:italic;">Inclui liberação para aprovar APLs e check boxes</span></div>
+
+							<div class="full-row sub-section">CLIENTES</div>
+							<div class="full-row"><a id="i-cli_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cli_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-cli_inserir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cli_inserir');">Inserir</a></div>
+							<div class="full-row"><a id="i-cli_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cli_editar');">Editar</a></div>
+							<div class="full-row"><a id="i-cli_excluir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cli_excluir');">Excluir</a></div>
+							<div class="full-row"><a id="i-cli_acessar_ambiente" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cli_acessar_ambiente');">Acessar Ambiente do Cliente</a></div>
+							<div class="full-row"><a id="i-cli_enviar_senha" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cli_enviar_senha');">Re-Enviar Senha</a></div>
+
+							<div class="full-row sub-section">HISTÓRICO DE REGISTROS</div>
+							<div class="full-row"><a id="i-his_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'his_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-his_inserir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'his_inserir');">Inserir</a></div>
+
+							<div class="full-row sub-section">DOCUMENTOS</div>
+							<div class="full-row"><a id="i-doc_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'doc_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-doc_inserir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'doc_inserir');">Inserir</a></div>
+							<div class="full-row"><a id="i-doc_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'doc_editar');">Editar</a></div>
+							<div class="full-row"><a id="i-doc_excluir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'doc_excluir');">Excluir</a></div>
+
+							<div class="full-row sub-section">USUÁRIOS</div>
+							<div class="full-row"><a id="i-usr_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'usr_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-usr_inserir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'usr_inserir');">Inserir</a></div>
+							<div class="full-row"><a id="i-usr_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'usr_editar');">Editar</a></div>
+							<div class="full-row"><a id="i-usr_excluir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'usr_excluir');">Excluir</a></div>
+
+							<div class="full-row sub-section">MEUS DADOS</div>
+							<div class="full-row"><a id="i-usr_info_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'usr_info_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-usr_info_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'usr_info_editar');">Editar</a></div>
+
+							<div class="full-row sub-section">FERIADOS</div>
+							<div class="full-row"><a id="i-fer_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'fer_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-fer_inserir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'fer_inserir');">Inserir</a></div>
+							<div class="full-row"><a id="i-fer_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'fer_editar');">Editar</a></div>
+							<div class="full-row"><a id="i-fer_excluir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'fer_excluir');">Excluir</a></div>
+
+							<div class="full-row sub-section">MODALIDADES</div>
+							<div class="full-row"><a id="i-mod_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'mod_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-mod_inserir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'mod_inserir');">Inserir</a></div>
+							<div class="full-row"><a id="i-mod_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'mod_editar');">Editar</a></div>
+							<div class="full-row"><a id="i-mod_excluir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'mod_excluir');">Excluir</a></div>
+
+							<div class="full-row sub-section">CIDADES</div>
+							<div class="full-row"><a id="i-cid_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cid_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-cid_inserir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cid_inserir');">Inserir</a></div>
+							<div class="full-row"><a id="i-cid_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cid_editar');">Editar</a></div>
+							<div class="full-row"><a id="i-cid_excluir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cid_excluir');">Excluir</a></div>
+
+							<div class="full-row sub-section">MOTIVOS</div>
+							<div class="full-row"><a id="i-mot_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'mot_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-mot_inserir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'mot_inserir');">Inserir</a></div>
+							<div class="full-row"><a id="i-mot_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'mot_editar');">Editar</a></div>
+							<div class="full-row"><a id="i-mot_excluir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'mot_excluir');">Excluir</a></div>
+
+							<div class="full-row sub-section">STATUS</div>
+							<div class="full-row"><a id="i-sta_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'sta_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-sta_inserir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'sta_inserir');">Inserir</a></div>
+							<div class="full-row"><a id="i-sta_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'sta_editar');">Editar</a></div>
+							<div class="full-row"><a id="i-sta_excluir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'sta_excluir');">Excluir</a></div>
+
+							<div class="full-row sub-section">COMPRA DIRETA/SRP</div>
+							<div class="full-row"><a id="i-cd_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cd_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-cd_autorizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cd_autorizar');">Autorizar Envio de APL</a></div>
+							<div class="full-row"><a id="i-cd_mensagem" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cd_mensagem');">Enviar Mensagens</a></div>
+
+							<div class="full-row sub-section">ATAS DE REGISTRO DE PREÇOS VIGENTES</div>
+							<div class="full-row"><a id="i-atarp_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'atarp_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-atarp_inserir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'atarp_inserir');">Inserir</a></div>
+							<div class="full-row"><a id="i-atarp_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'atarp_editar');">Editar</a></div>
+							<div class="full-row"><a id="i-atarp_excluir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'atarp_excluir');">Excluir</a></div>
+	
+							<div class="full-row sub-section">RELATÓRIOS</div>
+							<div class="full-row" style="padding:6px 18px;font-weight:bold;font-size:12px;">ADESÃO</div>
+							<div class="full-row"><a id="i-rel_1_1" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_1_1');">Total de DNs</a></div>
+							<div class="full-row"><a id="i-rel_1_2" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_1_2');">Quantos já acessaram</a></div>
+							<div class="full-row"><a id="i-rel_1_3" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_1_3');">Novos acessos</a></div>
+							<div class="full-row"><a id="i-rel_1_4" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_1_4');">Por mês e acumulado do ano</a></div>
+							<div class="full-row" style="padding:6px 18px;font-weight:bold;font-size:12px;">VOLUME DE ACESSOS</div>
+							<div class="full-row"><a id="i-rel_2_1" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_2_1');">Quantidade de acessos por mês</a></div>
+							<div class="full-row"><a id="i-rel_2_2" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_2_2');">Quantidade de acessos por ano</a></div>
+							<div class="full-row"><a id="i-rel_2_3" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_2_3');">Volume de acessos por DN</a></div>
+							<div class="full-row"><a id="i-rel_2_4" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_2_4');">Volume de acessos por Região</a></div>
+							<div class="full-row" style="padding:6px 18px;font-weight:bold;font-size:12px;">APLs</div>
+							<div class="full-row"><a id="i-rel_3_1" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_3_1');">APLs enviadas por mês</a></div>
+							<div class="full-row" style="padding:6px 18px;font-weight:bold;font-size:12px;">LICITAÇÕES</div>
+							<div class="full-row"><a id="i-rel_4_1" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_4_1');">Quantitativo total de processos Estaduais, Federais e Municipais</a></div>
+							<div class="full-row"><a id="i-rel_4_2" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_4_2');">Quantitativo de licitações recusadas pela GELIC e pela Fábrica</a></div>
+							<div class="full-row"><a id="i-rel_4_3" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_4_3');">Quantitativo de licitações em andamento, derrota, vitória e sem envio de APL</a></div>
+							<div class="full-row"><a id="i-rel_4_4" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_4_4');">Licitações e Veículos - Totais</a></div>
+							<div class="full-row"><a id="i-rel_4_5" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_4_5');">Licitações por Data de Insersão</a></div>
+							<div class="full-row" style="padding:6px 18px;font-weight:bold;font-size:12px;">STATUS</div>
+							<div class="full-row"><a id="i-rel_5_1" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_5_1');">Relatório por status (licitações e veículos)</a></div>
+							<div class="full-row" style="padding:6px 18px;font-weight:bold;font-size:12px;">DNs</div>
+							<div class="full-row"><a id="i-rel_6_1" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_6_1');">Lista de licitações por DN</a></div>
+							<div class="full-row"><a id="i-rel_6_2" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_6_2');">Lista de licitações por status</a></div>
+							<div class="full-row"><a id="i-rel_6_3" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'rel_6_3');">Lista de licitações por prazo</a></div>
+
+							<div class="full-row sub-section">BIBLIOTECA</div>
+							<div class="full-row"><a id="i-bib_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bib_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-bib_inserir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bib_inserir');">Inserir</a></div>
+							<div class="full-row"><a id="i-bib_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bib_editar');">Editar</a></div>
+							<div class="full-row"><a id="i-bib_excluir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'bib_excluir');">Excluir</a></div>
+
+							<div class="full-row sub-section">FILA/ENVIO DE MENSAGENS</div>
+							<div class="full-row"><a id="i-msg_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'msg_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-msg_reenviar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'msg_reenviar');">Re-enviar</a></div>
+							<div class="full-row"><a id="i-msg_excluir" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'msg_excluir');">Excluir</a></div>
+
+							<div class="full-row sub-section">CONFIGURAÇÃO</div>
+							<div class="full-row"><a id="i-cnf_visualizar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cnf_visualizar');">Visualizar</a></div>
+							<div class="full-row"><a id="i-cnf_editar" class="check0 ml-36" href="javascript:void(0);" onclick="ckSelfish(this,'cnf_editar');">Editar</a></div>
+						</div>
+						<div class="full-row mt-20 t14">Acesso Restrito por IP (separe com vírgula para múltiplos IPs. Ex: 127.0.0.1,192.168.1.1)</div>
+						<div class="full-row"><textarea id="i-perfil-ip" class="iText" placeholder="- acesso bloqueado -" name="f-perfil-ip" style="width:100%;max-width:100%;height:70px;padding:4px;resize:none;"></textarea></div>
+						<div class="full-row t13 italic gray-88">
+							<span>* = todos (permite acesso de qualquer IP)</span><br>
+							<span>em branco = acesso bloqueado</span><br>
+							<span>IP = acesso somente do endereço IP informado</span>
+						</div>
+					</form>
+
+					<div class="full-row mt-20" id="b-salvar"><a class="bt-style-1 fl" href="javascript:void(0);" onclick="salvarPerfil();">Salvar Novo Perfil</a></div>
+					<div class="full-row mt-20" id="processando">Salvando...</div>
+				</div>
+			</div>
+
+
+			<div class="conf-right-cnf-holder" id="config-texto" style="display: none;">
+				<div class="title-box">
+					<span class="t18 bold fl">Termos APL / Textos Padrão</span>
+				</div>
+				<div id="texto-container" class="content-box">
+
+					<div class="row-item hgl" style="background-color:#ffffff;">
+						<a class="alnk t14 abs lh-30 pl-10" href="javascript:void(0);" onclick="editarTexto(1);" style="display: inline-block; width: 100%; box-sizing: border-box;">LICITAÇÃO: Termos de envio da APL (DEPOIS DE CLICAR EM ENVIAR)</a>
+					</div>
+					<div class="row-item hgl" style="background-color:#ffffff;">
+						<a class="alnk t14 abs lh-30 pl-10" href="javascript:void(0);" onclick="editarTexto(16);" style="display: inline-block; width: 100%; box-sizing: border-box;">LICITAÇÃO: Termos de envio da APL (ANTES DE CLICAR EM ENVIAR)</a>
+					</div>
+					<div class="row-item hgl" style="background-color:#ffffff;">
+						<a class="alnk t14 abs lh-30 pl-10" href="javascript:void(0);" onclick="editarTexto(2);" style="display: inline-block; width: 100%; box-sizing: border-box;">LICITAÇÃO: Aprovar APL - Condições para Participação</a>
+					</div>
+					<div class="row-item hgl" style="background-color:#ffffff;">
+						<a class="alnk t14 abs lh-30 pl-10" href="javascript:void(0);" onclick="editarTexto(3);" style="display: inline-block; width: 100%; box-sizing: border-box;">LICITAÇÃO: Reprovar APL - Observações Gerais</a>
+					</div>
+					<div class="row-item hgl" style="background-color:#ffffff;">
+						<a class="alnk t14 abs lh-30 pl-10" href="javascript:void(0);" onclick="editarTexto(4);" style="display: inline-block; width: 100%; box-sizing: border-box;">LICITAÇÃO: Reverter Aprovação da APL - Observações Gerais</a>
+					</div>
+					<div class="row-item hgl" style="background-color:#ffffff;">
+						<a class="alnk t14 abs lh-30 pl-10" href="javascript:void(0);" onclick="editarTexto(5);" style="display: inline-block; width: 100%; box-sizing: border-box;">LICITAÇÃO: Reverter Reprovação da APL - Observações Gerais</a>
+					</div>
+
+					<div class="row-item" style="background-color:#ffffff;height:30px;"></div>
+
+					<div class="row-item hgl" style="background-color:#ffffff;">
+						<a class="alnk t14 abs lh-30 pl-10" href="javascript:void(0);" onclick="editarTexto(11);" style="display: inline-block; width: 100%; box-sizing: border-box;">COMPRA DIRETA/SRP: Termos de envio da APL</a>
+					</div>
+					<div class="row-item hgl" style="background-color:#ffffff;">
+						<a class="alnk t14 abs lh-30 pl-10" href="javascript:void(0);" onclick="editarTexto(12);" style="display: inline-block; width: 100%; box-sizing: border-box;">COMPRA DIRETA/SRP: Aprovar APL - Condições para Participação</a>
+					</div>
+					<div class="row-item hgl" style="background-color:#ffffff;">
+						<a class="alnk t14 abs lh-30 pl-10" href="javascript:void(0);" onclick="editarTexto(13);" style="display: inline-block; width: 100%; box-sizing: border-box;">COMPRA DIRETA/SRP: Reprovar APL - Observações Gerais</a>
+					</div>
+					<div class="row-item hgl" style="background-color:#ffffff;">
+						<a class="alnk t14 abs lh-30 pl-10" href="javascript:void(0);" onclick="editarTexto(14);" style="display: inline-block; width: 100%; box-sizing: border-box;">COMPRA DIRETA/SRP: Reverter Aprovação da APL - Observações Gerais</a>
+					</div>
+					<div class="row-item hgl" style="background-color:#ffffff;">
+						<a class="alnk t14 abs lh-30 pl-10" href="javascript:void(0);" onclick="editarTexto(15);" style="display: inline-block; width: 100%; box-sizing: border-box;">COMPRA DIRETA/SRP: Reverter Reprovação da APL - Observações Gerais</a>
+					</div>
+
+				</div>
+			</div>
+
+
+			<div class="conf-right-cnf-holder" id="config-texto-editar" style="display: none;">
+				<div class="title-box">
+					<span id="texto-title" class="t18 bold fl">...</span>
+					<a class="bt-style-3 fr mb-4" href="javascript:void(0);" onclick="cancelarTexto();" title="Cancelar">X</a>
+				</div>
+				<div class="content-box mb-60">
+					<form id="texto-form">
+						<input type="hidden" name="f-id" value="0">
+						<div class="full-row"><textarea id="i-texto" class="iText" name="f-texto" style="width:100%;max-width:100%;height:220px;padding:4px;resize:none;"></textarea></div>
+					</form>
+
+					<div class="full-row mt-20" id="t-salvar"><a class="bt-style-1 fl" href="javascript:void(0);" onclick="salvarTexto();">Salvar Alterações</a></div>
+					<div class="full-row mt-20" id="t-processando">Salvando...</div>
+				</div>
+			</div>
+
+
+
+
+		</div>
+		<div class="row_wide_content" style="height: 100px;"><!-- gap --></div>
+	</div>
+</div>
+</body>
+</html>
